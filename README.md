@@ -1,4 +1,5 @@
-# tic-tactics-toe
+# [tic-tactics-toe][repo]
 
 Tic-Tac-Toe with a card game twist
-# tic-tactics-toe
+
+[repo]: https://github.com/sombriks/tic-tactics-toe
