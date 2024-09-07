@@ -22,6 +22,8 @@ public class TictacticstoeBuild extends Project {
                 .include(dependency("io.javalin:javalin:6.3.0"));
 
         scope(test)
+                .include(dependency("org.hamcrest:hamcrest:3.0"))
+                .include(dependency("io.javalin:javalin-testtools:6.3.0"))
                 .include(dependency("org.junit.jupiter", "junit-jupiter", version(5, 11, 0)))
                 .include(dependency("org.junit.platform", "junit-platform-console-standalone", version(1, 11, 0)));
     }
