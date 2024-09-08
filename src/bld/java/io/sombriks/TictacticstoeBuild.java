@@ -21,6 +21,7 @@ public class TictacticstoeBuild extends Project {
         scope(compile)
                 .include(dependency("org.jdbi:jdbi3-core:3.45.4"))
                 .include(dependency("com.h2database:h2:2.3.232"))
+                .include(dependency("commons-io:commons-io:2.16.1"))
                 .include(dependency("com.j2html:j2html:1.6.0"))
                 .include(dependency("org.webjars.npm:vue:3.5.3"))
                 .include(dependency("org.webjars.npm:htmx.org:2.0.2"))

@@ -12,6 +12,7 @@
         "lib/**/*.jar"
     ],
     "cSpell.words": [
+        "tictacticstoe",
         "Tictacticstoe"
     ]
 }
