@@ -20,4 +20,15 @@ public class TictacticstoeTest {
             assertThat(result.body().string(), is("ONLINE"));
         });
     }
+    
+    
+    @Test
+    public void shouldRedirectToMaps() {
+        JavalinTest.test(app.server, (server, client) -> {
+            var result = client.get("/");
+            assertThat(result.code(), is(200));
+            assertThat(result.body(), is(notNullValue()));
+            assertThat(result.body().string(), containsString("World Map"));
+        });
+    }
 }
