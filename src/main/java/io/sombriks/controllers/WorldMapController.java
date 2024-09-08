@@ -5,9 +5,9 @@ import io.sombriks.services.WorldMapService;
 import org.jetbrains.annotations.NotNull;
 
 public class WorldMapController {
-    
+
     private final WorldMapService worldMapService;
-    
+
     public WorldMapController(WorldMapService worldMapService) {
         this.worldMapService = worldMapService;
     }
