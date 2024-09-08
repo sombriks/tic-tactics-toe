@@ -16,8 +16,8 @@ public class TictacticstoeTest {
         JavalinTest.test(app.server, (server, client) -> {
             var result = client.get("/status");
             assertThat(result.code(), is(200));
+            assertThat(result.body(), notNullValue());
             assertThat(result.body().string(), is("ONLINE"));
-
         });
     }
 }
