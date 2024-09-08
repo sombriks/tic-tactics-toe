@@ -1,5 +1,7 @@
 # [tic-tactics-toe][repo]
 
+[![Java CI with bld](https://github.com/sombriks/tic-tactics-toe/actions/workflows/bld.yml/badge.svg)](https://github.com/sombriks/tic-tactics-toe/actions/workflows/bld.yml)
+
 Tic-Tac-Toe with a card game twist
 
 ## Tech stack
@@ -35,7 +37,9 @@ Or:
 
 ## Noteworthy
 
-- I enjoy the elegance of the [ApiBuilder][handler-group]
+- I enjoy the elegance of the [ApiBuilder][handler-group] very much.
+- The best [j2html][j2html] example is [the site itself][views].
+- Webjars helps me to keep all dependency version [in one place][project].
 
 [repo]: https://github.com/sombriks/tic-tactics-toe
 [java]: https://dev.java
@@ -48,3 +52,5 @@ Or:
 [vue]: https://vuejs.org
 [bld]: https://rife2.com/bld
 [handler-group]: https://javalin.io/documentation#handler-groups
+[views]: https://github.com/tipsy/j2html/blob/master/j2html-website/src/main/java/app/views/MainView.java
+[project]: src/bld/java/io/sombriks/TictacticstoeBuild.java
