@@ -9,11 +9,11 @@ import org.jetbrains.annotations.NotNull;
 public class WorldMapController {
 
     private final WorldMapService worldMapService;
-
-    private final MainLayout mainLayout = new MainLayout();
+    private final MainLayout mainLayout;
     
-    public WorldMapController(WorldMapService worldMapService) {
+    public WorldMapController(WorldMapService worldMapService, MainLayout mainLayout) {
         this.worldMapService = worldMapService;
+        this.mainLayout = mainLayout;
     }
 
     public void index(@NotNull Context context) {

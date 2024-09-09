@@ -5,12 +5,7 @@ import org.jdbi.v3.core.Jdbi;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class Database {
 
@@ -19,7 +14,7 @@ public class Database {
 
     public Database() {
         String resources[] = {
-          "/migrate/2024-09-08-10-19-initial-schema.sql"
+            "/migrates/2024-09-08-10-19-initial-schema.sql"
         };
         for(String resource: resources) {
             try {

@@ -5,7 +5,6 @@ import io.sombriks.configs.Database;
 import io.sombriks.controllers.*;
 import io.sombriks.services.*;
 import io.sombriks.templates.layouts.MainLayout;
-import io.sombriks.templates.pages.MapsPage;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 
@@ -27,19 +26,22 @@ public class TictacticstoeMain {
   
   private final CardService cardService = new CardService(database);
   
-  private final WorldMapController worldMapController = new WorldMapController(worldMapService);
-  private final BoardController boardController = new BoardController(boardService);
-  private final ChallengeController challengeController = new ChallengeController(challengeService);
-  private final FightController fightController = new FightController(fightService);
+  private final MainLayout mainLayout = new MainLayout();
   
-  private final PlayerController playerController = new PlayerController(playerService);
-  private final DeckController deckController = new DeckController(deckService);
-  private final SettingsController settingsController = new SettingsController(settingsService);
+  private final WorldMapController worldMapController = new WorldMapController(worldMapService, mainLayout);
+  private final BoardController boardController = new BoardController(boardService, mainLayout);
+  private final ChallengeController challengeController = new ChallengeController(challengeService, mainLayout);
+  private final FightController fightController = new FightController(fightService, mainLayout);
   
-  private final CardController cardController = new CardController(cardService);
+  private final PlayerController playerController = new PlayerController(playerService, mainLayout);
+  private final DeckController deckController = new DeckController(deckService, mainLayout);
+  private final SettingsController settingsController = new SettingsController(settingsService, mainLayout);
+  
+  private final CardController cardController = new CardController(cardService, mainLayout);
   
   final Javalin server = Javalin.create(config -> {
     config.staticFiles.enableWebjars();
+    config.staticFiles.add("/assets");
     // our route config
     config.router.apiBuilder(() -> {
       get("/", ctx -> ctx.redirect("/maps"));

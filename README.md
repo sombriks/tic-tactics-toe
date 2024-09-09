@@ -14,6 +14,7 @@ Tic-Tac-Toe with a card game twist
 - [j2html][j2html]
 - [htmx.org 2.0][htmx]
 - [vue 3.5][vue]
+- [vueUse 10.9][vueuse]
 
 ## How to build
 
@@ -40,6 +41,10 @@ Or:
 - I enjoy the elegance of the [ApiBuilder][handler-group] very much.
 - The best [j2html][j2html] example is [the site itself][views].
 - Webjars helps me to keep all dependency version [in one place][project].
+- The use of vue in non-sfc, no-build-step environments is a known progressive
+  capability but always pleasant to see in action. Even the ecosystem honors
+  this, as we can see in VueUse library.
+  
 
 [repo]: https://github.com/sombriks/tic-tactics-toe
 [java]: https://dev.java
@@ -50,6 +55,7 @@ Or:
 [j2html]: https://j2html.com
 [htmx]: https://htmx.org
 [vue]: https://vuejs.org
+[vueuse]: https://vueuse.org/
 [bld]: https://rife2.com/bld
 [handler-group]: https://javalin.io/documentation#handler-groups
 [views]: https://github.com/tipsy/j2html/blob/master/j2html-website/src/main/java/app/views/MainView.java

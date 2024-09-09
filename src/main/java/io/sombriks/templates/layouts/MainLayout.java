@@ -14,26 +14,17 @@ public class MainLayout {
             title("Tic Tactics Toe - " + page.getTitle()),
             script().withType("application/javascript").withSrc("/webjars/htmx.org/2.0.2/dist/htmx.js"),
             script().withType("application/javascript").withSrc("/webjars/vue/3.5.3/dist/vue.global.js"),
+            script().withType("application/javascript").withSrc("/webjars/vueuse__core/10.9.0/index.iife.js"),
             script("htmx.logAll();").withType("application/javascript")
         ),
         body(
             main(
                 attrs("#app"),
                 page.content(),
-                section("{{message}}")
+                section("{{message}}"),
+                button("count is {{count}}").attr("@click","count++")
             ),
-            script("""
-                  // TODO see what happens when htmx starts to change the document
-                  const { createApp, ref } = Vue
-                  createApp({
-                    setup() {
-                      const message = ref('Hello vue!')
-                      return {
-                        message
-                      }
-                    }
-                  }).mount('#app')
-                """).withType("application/javascript")
+            script().withType("application/javascript").withSrc("/main-layout.js")
         )
     );
   }
