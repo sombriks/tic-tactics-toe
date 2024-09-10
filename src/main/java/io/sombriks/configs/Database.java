@@ -1,5 +1,6 @@
 package io.sombriks.configs;
 
+import io.sombriks.models.GameMap;
 import org.apache.commons.io.IOUtils;
 import org.jdbi.v3.core.Jdbi;
 
@@ -13,7 +14,8 @@ public class Database {
     public final Jdbi jdbi = Jdbi.create("jdbc:h2:./tictacticstoe");
 
     public Database() {
-        String resources[] = {
+        jdbi.registerRowMapper(new GameMap.Mapper());
+        String[] resources = {
             "/migrates/2024-09-08-10-19-initial-schema.sql"
         };
         for(String resource: resources) {

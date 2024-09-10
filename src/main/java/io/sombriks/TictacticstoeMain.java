@@ -15,7 +15,7 @@ public class TictacticstoeMain {
   
   private final Database database = new Database();
   
-  private final WorldMapService worldMapService = new WorldMapService(database);
+  private final MapService mapService = new MapService(database);
   private final BoardService boardService = new BoardService(database);
   private final ChallengeService challengeService = new ChallengeService(database);
   private final FightService fightService = new FightService(database);
@@ -28,7 +28,7 @@ public class TictacticstoeMain {
   
   private final MainLayout mainLayout = new MainLayout();
   
-  private final WorldMapController worldMapController = new WorldMapController(worldMapService, mainLayout);
+  private final MapController mapController = new MapController(mapService, mainLayout);
   private final BoardController boardController = new BoardController(boardService, mainLayout);
   private final ChallengeController challengeController = new ChallengeController(challengeService, mainLayout);
   private final FightController fightController = new FightController(fightService, mainLayout);
@@ -48,9 +48,9 @@ public class TictacticstoeMain {
       get("/status", ctx -> ctx.result("ONLINE"));
       
       path("/maps", () -> {
-        get(worldMapController::index);
+        get(mapController::index);
         path("/{mapId}", () -> {
-          get(worldMapController::find);
+          get(mapController::find);
           path("/boards", () -> {
             get(boardController::index);
             path("/{boardId}", () -> {

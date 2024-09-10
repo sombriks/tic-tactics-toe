@@ -1,5 +1,5 @@
 -- all boards dwell in a world map
-create table if not exists world_maps
+create table if not exists game_maps
 (
     id integer not null primary key auto_increment
 );
@@ -7,7 +7,7 @@ create table if not exists world_maps
 create table if not exists boards
 (
     id            integer not null primary key auto_increment,
-    world_maps_id integer not null references world_maps (id) on delete cascade
+    game_maps_id integer not null references game_maps (id) on delete cascade
 );
 
 create table if not exists challenges

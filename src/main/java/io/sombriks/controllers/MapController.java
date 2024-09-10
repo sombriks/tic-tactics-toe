@@ -1,23 +1,26 @@
 package io.sombriks.controllers;
 
 import io.javalin.http.Context;
-import io.sombriks.services.WorldMapService;
+import io.sombriks.models.GameMap;
+import io.sombriks.services.MapService;
 import io.sombriks.templates.layouts.MainLayout;
 import io.sombriks.templates.pages.MapsPage;
 import org.jetbrains.annotations.NotNull;
 
-public class WorldMapController {
+public class MapController {
 
-    private final WorldMapService worldMapService;
+    private final MapService mapService;
     private final MainLayout mainLayout;
     
-    public WorldMapController(WorldMapService worldMapService, MainLayout mainLayout) {
-        this.worldMapService = worldMapService;
+    public MapController(MapService mapService, MainLayout mainLayout) {
+        this.mapService = mapService;
         this.mainLayout = mainLayout;
     }
 
     public void index(@NotNull Context context) {
-        MapsPage mapsPage = new MapsPage(); // dynamic content maybe
+        Long mapId = context.queryParamAsClass("id", Long.class).getOrDefault(1L);
+        GameMap map = mapService.find(mapId);
+        MapsPage mapsPage = new MapsPage(map); // dynamic content maybe
         context.html(mainLayout.layout(mapsPage).render());
     }
 

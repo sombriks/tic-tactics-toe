@@ -11,3 +11,6 @@ createApp({
     }
   }
 }).mount('#app')
+
+// proper htmx/vue integration would be vue refs participating in htmx requests,
+// vue events able to trigger htmx and
