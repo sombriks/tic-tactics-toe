@@ -15,7 +15,7 @@ public class TictacticstoeMain {
   
   private final Database database = new Database();
   
-  private final MapService mapService = new MapService(database);
+  private final GameMapService gameMapService = new GameMapService(database);
   private final BoardService boardService = new BoardService(database);
   private final ChallengeService challengeService = new ChallengeService(database);
   private final FightService fightService = new FightService(database);
@@ -28,7 +28,7 @@ public class TictacticstoeMain {
   
   private final MainLayout mainLayout = new MainLayout();
   
-  private final MapController mapController = new MapController(mapService, mainLayout);
+  private final MapController mapController = new MapController(gameMapService, mainLayout);
   private final BoardController boardController = new BoardController(boardService, mainLayout);
   private final ChallengeController challengeController = new ChallengeController(challengeService, mainLayout);
   private final FightController fightController = new FightController(fightService, mainLayout);

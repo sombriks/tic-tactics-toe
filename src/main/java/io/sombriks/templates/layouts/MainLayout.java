@@ -20,9 +20,7 @@ public class MainLayout {
         body(
             main(
                 attrs("#app"),
-                page.content(),
-                section("{{message}}"),
-                button("count is {{count}}").attr("@click","count++")
+                page.content()
             ),
             script().withType("application/javascript").withSrc("/main-layout.js")
         )

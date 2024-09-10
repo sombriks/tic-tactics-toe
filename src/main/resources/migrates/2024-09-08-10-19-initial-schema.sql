@@ -1,7 +1,8 @@
 -- all boards dwell in a world map
 create table if not exists game_maps
 (
-    id integer not null primary key auto_increment
+    id integer not null primary key auto_increment,
+    name varchar(255) unique not null
 );
 
 create table if not exists boards

@@ -6,11 +6,11 @@ import j2html.tags.DomContent;
 
 import static j2html.TagCreator.*;
 
-public class MapsPage implements Page {
+public class GameMapsPage implements Page {
   
   private final GameMap map;
   
-  public MapsPage(GameMap map) {
+  public GameMapsPage(GameMap map) {
     this.map = map;
   }
   
@@ -21,7 +21,7 @@ public class MapsPage implements Page {
   
   @Override
   public DomContent content() {
-    return join(h1("Map #" + map.id()), table( // TODO each
+    return join(h1(map.toString()), table( // TODO each
         tr(
             td(
                 "1"
@@ -33,6 +33,6 @@ public class MapsPage implements Page {
                 "3"
             )
         )
-    ));
+    ), button("Create board"));
   }
 }
