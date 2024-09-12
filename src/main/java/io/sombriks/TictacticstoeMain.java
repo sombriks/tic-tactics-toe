@@ -28,7 +28,7 @@ public class TictacticstoeMain {
   
   private final MainLayout mainLayout = new MainLayout();
   
-  private final MapController mapController = new MapController(gameMapService, mainLayout);
+  private final MapController mapController = new MapController(gameMapService, boardService, mainLayout);
   private final BoardController boardController = new BoardController(boardService, mainLayout);
   private final ChallengeController challengeController = new ChallengeController(challengeService, mainLayout);
   private final FightController fightController = new FightController(fightService, mainLayout);
@@ -53,6 +53,7 @@ public class TictacticstoeMain {
           get(mapController::find);
           path("/boards", () -> {
             get(boardController::index);
+            post(boardController::insert);
             path("/{boardId}", () -> {
               get(boardController::find);
               path("/challenges", () -> {

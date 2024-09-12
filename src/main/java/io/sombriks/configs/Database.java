@@ -1,8 +1,11 @@
 package io.sombriks.configs;
 
+import io.sombriks.models.Board;
 import io.sombriks.models.GameMap;
+import io.sombriks.models.InsertedId;
 import org.apache.commons.io.IOUtils;
 import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.mapper.reflect.ConstructorMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +35,13 @@ public class Database {
       """;
   
   public Database() {
-    jdbi.registerRowMapper(new GameMap.Mapper());
+    jdbi.registerRowMapper(ConstructorMapper.factory(Board.class));
+    jdbi.registerRowMapper(ConstructorMapper.factory(GameMap.class));
+    jdbi.registerRowMapper(ConstructorMapper.factory(InsertedId.class));
+    initDB();
+  }
+  
+  private void initDB() {
     String[] migrates = {
         "/migrates/2024-09-08-10-19-initial-schema.sql",
         "/migrates/2024-09-10-12-01-initial-data.sql",

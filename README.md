@@ -44,6 +44,8 @@ Or:
 - The use of vue in non-sfc, no-build-step environments is a known progressive
   capability but always pleasant to see in action. Even the ecosystem honors
   this, as we can see in VueUse library.
+- The [jdbi constructor mapper][constructor-mapper] works great with java
+  records.
   
 
 [repo]: https://github.com/sombriks/tic-tactics-toe
@@ -60,3 +62,4 @@ Or:
 [handler-group]: https://javalin.io/documentation#handler-groups
 [views]: https://github.com/tipsy/j2html/blob/master/j2html-website/src/main/java/app/views/MainView.java
 [project]: src/bld/java/io/sombriks/TictacticstoeBuild.java
+[constructor-mapper]: https://jdbi.org/#_constructormapper

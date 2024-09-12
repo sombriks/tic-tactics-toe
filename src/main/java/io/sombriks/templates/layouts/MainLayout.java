@@ -20,7 +20,9 @@ public class MainLayout {
         body(
             main(
                 attrs("#app"),
-                page.content()
+                section(
+                    page.content()
+                )
             ),
             script().withType("application/javascript").withSrc("/main-layout.js")
         )
