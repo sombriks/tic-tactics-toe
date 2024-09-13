@@ -6,6 +6,8 @@ import io.sombriks.models.Board;
 import io.sombriks.services.BoardService;
 import io.sombriks.templates.components.BoardItem;
 import io.sombriks.templates.layouts.MainLayout;
+import io.sombriks.templates.pages.BoardsPage;
+import io.sombriks.templates.pages.NotFound;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,7 @@ public class BoardController {
   
   public void index(@NotNull Context context) {
     LOG.info("index");
+    context.status(404).html(mainLayout.layout(new NotFound("Provide boardId")).render());
   }
   
   public void find(@NotNull Context context) {
@@ -31,7 +34,7 @@ public class BoardController {
     Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
     Long boardId = context.pathParamAsClass("boardId", Long.class).get();
     Board board = boardService.find(mapId, boardId);
-    context.html(new BoardItem(board).content().render());
+    context.html(mainLayout.layout(new BoardsPage(board)).render());
   }
   
   public void insert(@NotNull Context context) {

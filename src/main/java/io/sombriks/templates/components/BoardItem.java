@@ -4,7 +4,7 @@ import io.sombriks.models.Board;
 import io.sombriks.templates.Component;
 import j2html.tags.DomContent;
 
-import static j2html.TagCreator.button;
+import static j2html.TagCreator.*;
 
 public class BoardItem implements Component {
   
@@ -16,6 +16,8 @@ public class BoardItem implements Component {
   
   @Override
   public DomContent content() {
-    return button(board.toString());
+    return div(attrs(".board-item"),
+        a(board.toString())
+            .withHref(String.format("/maps/%d/boards/%d", board.mapId(), board.id())));
   }
 }

@@ -15,16 +15,16 @@ public class MainLayout {
             script().withType("application/javascript").withSrc("/webjars/htmx.org/2.0.2/dist/htmx.js"),
             script().withType("application/javascript").withSrc("/webjars/vue/3.5.3/dist/vue.global.js"),
             script().withType("application/javascript").withSrc("/webjars/vueuse__core/10.9.0/index.iife.js"),
-            script("htmx.logAll();").withType("application/javascript")
+            script("htmx.logAll();").withType("application/javascript"),
+            script().isDefer().withType("application/javascript").withSrc("/main-layout.js"),
+            link().withRel("stylesheet").withHref("/main-layout.css")
         ),
         body(
-            main(
-                attrs("#app"),
-                section(
-                    page.content()
-                )
+            attrs("#app"),
+            section(
+                page.content()
             ),
-            script().withType("application/javascript").withSrc("/main-layout.js")
+            footer("{{footer}}")
         )
     );
   }

@@ -1,0 +1,17 @@
+:root {
+    --color-scheme: light dark;
+    --box-size: 100px;
+    color-scheme: var(--color-scheme);
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.board-item {
+    max-width:var(--box-size);
+    max-height:var(--box-size);
+    min-width:var(--box-size);
+    min-height:var(--box-size);
+}

@@ -16,7 +16,7 @@ public class NewBoardItem implements Component {
   
   @Override
   public DomContent content() {
-    return button("+")
+    return button(attrs(".board-item"), "+")
         .attr("hx-swap", "beforeend")
         .attr("hx-target", "closest section")
         .attr("hx-post", String.format("/maps/%d/boards", map.id()));

@@ -4,10 +4,10 @@ const { useStorage } = VueUse
 
 createApp({
   setup() {
-    const message = ref('Hello vue!')
+    const footer = ref('Tic Tactics Toe')
     const count = useStorage('my-count', 0) // returns Ref<number>
     return {
-      message, count
+      footer, count
     }
   }
 }).mount('#app')
