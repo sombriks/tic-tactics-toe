@@ -34,7 +34,11 @@ public class BoardController {
     Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
     Long boardId = context.pathParamAsClass("boardId", Long.class).get();
     Board board = boardService.find(mapId, boardId);
-    context.html(mainLayout.layout(new BoardsPage(board)).render());
+    if ("true".equals(context.header("HX-Request"))) {
+      context.html(new BoardItem(board).content().render());
+    } else {
+      context.html(mainLayout.layout(new BoardsPage(board)).render());
+    }
   }
   
   public void insert(@NotNull Context context) {

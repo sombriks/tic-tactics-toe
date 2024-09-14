@@ -21,7 +21,16 @@ public class BoardsPage implements Page {
   
   @Override
   public DomContent content() {
-    return join(
-        h1(board.toString()));
+    return div(attrs(".board"),
+        div(attrs(".item"), "1"),
+        div(attrs(".item"), "2"),
+        div(attrs(".item"), "3"),
+        div(attrs(".item"), "4"),
+        div(attrs(".item"), "5"),
+        div(attrs(".item"), "6"),
+        div(attrs(".item"), "7"),
+        div(attrs(".item"), "8"),
+        div(attrs(".item"), "9")
+    );
   }
 }

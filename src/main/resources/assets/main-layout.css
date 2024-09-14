@@ -1,6 +1,6 @@
 :root {
     --color-scheme: light dark;
-    --box-size: 100px;
+    --board-item-size: 100px;
     color-scheme: var(--color-scheme);
 }
 
@@ -10,8 +10,23 @@ section {
 }
 
 .board-item {
-    max-width:var(--box-size);
-    max-height:var(--box-size);
-    min-width:var(--box-size);
-    min-height:var(--box-size);
+    max-width:var(--board-item-size);
+    max-height:var(--board-item-size);
+    min-width:var(--board-item-size);
+    min-height:var(--board-item-size);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 5px 5px;
+}
+
+.item {
+    max-width:var(--board-item-size);
+    max-height:var(--board-item-size);
+    min-width:var(--board-item-size);
+    min-height:var(--board-item-size);
+    border: 1px solid red;
 }
