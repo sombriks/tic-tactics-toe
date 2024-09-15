@@ -21,9 +21,7 @@ public class MainLayout {
         ),
         body(
             attrs("#app"),
-            section(
-                page.content()
-            ),
+            page.content(),
             footer("{{footer}}")
         )
     );

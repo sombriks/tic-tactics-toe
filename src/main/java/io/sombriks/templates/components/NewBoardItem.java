@@ -18,7 +18,7 @@ public class NewBoardItem implements Component {
   public DomContent content() {
     return button(attrs(".board-item"), "+")
         .attr("hx-swap", "beforeend")
-        .attr("hx-target", "closest section")
+        .attr("hx-target", "closest div.map")
         .attr("hx-post", String.format("/maps/%d/boards", map.id()));
   }
 }

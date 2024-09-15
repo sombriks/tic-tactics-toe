@@ -28,7 +28,7 @@ public class GameMapsPage implements Page {
   
   @Override
   public DomContent content() {
-    return join(
+    return div(attrs(".map"),
         new NewBoardItem(map).content(),
         each(boards, (board -> new BoardItem(board).content())));
   }

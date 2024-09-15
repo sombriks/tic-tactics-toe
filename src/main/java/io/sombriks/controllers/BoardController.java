@@ -26,7 +26,7 @@ public class BoardController {
   
   public void index(@NotNull Context context) {
     LOG.info("index");
-    context.status(404).html(mainLayout.layout(new NotFound("Provide boardId")).render());
+    context.status(404).html(mainLayout.layout(new NotFound("Please provide boardId")).render());
   }
   
   public void find(@NotNull Context context) {
