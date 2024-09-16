@@ -27,11 +27,11 @@ public class BoardService {
         .mapTo(Board.class).list());
   }
   
-  public Board find(Long mapId, Long boardId) {
+  public Board find(Board board) {
     return database.jdbi.withHandle(handle -> handle.createQuery("""
                 select * from boards
-                 where id = :boardId and game_maps_id = :mapId
-            """).bind("boardId", boardId).bind("mapId", mapId)
+                 where id = :id and game_maps_id = :mapId
+            """).bindMethods(board)
         .mapTo(Board.class).one());
   }
   

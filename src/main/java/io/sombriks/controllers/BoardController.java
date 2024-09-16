@@ -33,7 +33,7 @@ public class BoardController {
     LOG.info("find");
     Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
     Long boardId = context.pathParamAsClass("boardId", Long.class).get();
-    Board board = boardService.find(mapId, boardId);
+    Board board = boardService.find(new Board(boardId, mapId));
     if ("true".equals(context.header("HX-Request"))) {
       context.html(new BoardItem(board).content().render());
     } else {
