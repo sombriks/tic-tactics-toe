@@ -4,7 +4,6 @@ import io.javalin.Javalin;
 import io.sombriks.configs.Database;
 import io.sombriks.controllers.*;
 import io.sombriks.services.*;
-import io.sombriks.templates.layouts.MainLayout;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
 
@@ -12,33 +11,31 @@ import static io.javalin.apibuilder.ApiBuilder.*;
  * service entrypoint
  */
 public class TictacticstoeMain {
-  
+
   private final Database database = new Database();
-  
+
   private final GameMapService gameMapService = new GameMapService(database);
   private final BoardService boardService = new BoardService(database);
   private final ChallengeService challengeService = new ChallengeService(database);
   private final FightService fightService = new FightService(database);
-  
+
   private final PlayerService playerService = new PlayerService(database);
   private final DeckService deckService = new DeckService(database);
   private final SettingsService settingsService = new SettingsService(database);
-  
+
   private final CardService cardService = new CardService(database);
-  
-  private final MainLayout mainLayout = new MainLayout();
-  
-  private final MapController mapController = new MapController(gameMapService, boardService, mainLayout);
-  private final BoardController boardController = new BoardController(boardService, mainLayout);
-  private final ChallengeController challengeController = new ChallengeController(challengeService, mainLayout);
-  private final FightController fightController = new FightController(fightService, mainLayout);
-  
-  private final PlayerController playerController = new PlayerController(playerService, mainLayout);
-  private final DeckController deckController = new DeckController(deckService, mainLayout);
-  private final SettingsController settingsController = new SettingsController(settingsService, mainLayout);
-  
-  private final CardController cardController = new CardController(cardService, mainLayout);
-  
+
+  private final MapController mapController = new MapController(gameMapService, boardService);
+  private final BoardController boardController = new BoardController(boardService);
+  private final ChallengeController challengeController = new ChallengeController(challengeService);
+  private final FightController fightController = new FightController(fightService);
+
+  private final PlayerController playerController = new PlayerController(playerService);
+  private final DeckController deckController = new DeckController(deckService);
+  private final SettingsController settingsController = new SettingsController(settingsService);
+
+  private final CardController cardController = new CardController(cardService);
+
   final Javalin server = Javalin.create(config -> {
     config.staticFiles.enableWebjars();
     config.staticFiles.add("/assets");
@@ -46,7 +43,7 @@ public class TictacticstoeMain {
     config.router.apiBuilder(() -> {
       get("/", ctx -> ctx.redirect("/maps"));
       get("/status", ctx -> ctx.result("ONLINE"));
-      
+
       path("/maps", () -> {
         get(mapController::index);
         path("/{mapId}", () -> {
@@ -95,7 +92,7 @@ public class TictacticstoeMain {
       });
     });
   });
-  
+
   public static void main(String[] args) {
     // TODO System.getEnv()
     new TictacticstoeMain().server.start(7070);
