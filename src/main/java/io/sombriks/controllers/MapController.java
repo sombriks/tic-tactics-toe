@@ -28,6 +28,7 @@ public class MapController {
     Long mapId = context.queryParamAsClass("id", Long.class).getOrDefault(1L);
     GameMap map = gameMapService.find(mapId);
     List<Board> boards = boardService.list(mapId);
+    context.render("index");
 //    GameMapsPage gameMapsPage = new GameMapsPage(map, boards); // dynamic content maybe
 //    context.html(mainLayout.layout(gameMapsPage).render());
   }

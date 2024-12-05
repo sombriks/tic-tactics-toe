@@ -2,6 +2,7 @@ package io.sombriks;
 
 import io.javalin.Javalin;
 import io.sombriks.configs.Database;
+import io.sombriks.configs.TemplateConfig;
 import io.sombriks.controllers.*;
 import io.sombriks.services.*;
 
@@ -13,6 +14,7 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 public class TictacticstoeMain {
 
   private final Database database = new Database();
+  private final TemplateConfig templateConfig = new TemplateConfig();
 
   private final GameMapService gameMapService = new GameMapService(database);
   private final BoardService boardService = new BoardService(database);
@@ -39,6 +41,8 @@ public class TictacticstoeMain {
   final Javalin server = Javalin.create(config -> {
     config.staticFiles.enableWebjars();
     config.staticFiles.add("/assets");
+    templateConfig.configure(config);
+
     // our route config
     config.router.apiBuilder(() -> {
       get("/", ctx -> ctx.redirect("/maps"));
