@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
-import java.util.Objects;
 
 public class ClasspathTemplateLoader implements TemplateLoader {
     @Override
@@ -17,7 +16,7 @@ public class ClasspathTemplateLoader implements TemplateLoader {
     @Override
     public Reader getReader(String name) throws IOException {
         name = getBase() + name + getExtension();
-        return new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream(name)), StandardCharsets.UTF_8);
+        return new InputStreamReader(getClass().getResourceAsStream(name), StandardCharsets.UTF_8);
     }
 
     @Override
