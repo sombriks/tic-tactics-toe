@@ -12,7 +12,7 @@ Tic-Tac-Toe with a card game twist
 - [jdbi 3.45][jdbi]
 - [javalin 6.3][javalin]
 - [htmx.org 2.0][htmx]
-- [Alpine.js 3.14][alpinejs]
+- [alpine.js 3.14][alpinejs]
 
 ## How to build
 
