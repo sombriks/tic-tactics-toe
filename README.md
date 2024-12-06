@@ -13,6 +13,7 @@ Tic-Tac-Toe with a card game twist
 - [javalin 6.3][javalin]
 - [htmx.org 2.0][htmx]
 - [alpine.js 3.14][alpinejs]
+- [pug4j 2.2][pug4j]
 
 ## How to build
 
@@ -40,6 +41,7 @@ Or:
 - Webjars helps me to keep all dependency version [in one place][project].
 - The [jdbi constructor mapper][constructor-mapper] works great with java
   records.
+- uberjar seems broken
 
 [repo]: https://github.com/sombriks/tic-tactics-toe
 [java]: https://dev.java
@@ -49,6 +51,7 @@ Or:
 [javalin]: https://javalin.io
 [htmx]: https://htmx.org
 [alpinejs]: https://alpinejs.dev/
+[pug4j]: https://github.com/neuland/pug4j
 [bld]: https://rife2.com/bld
 [handler-group]: https://javalin.io/documentation#handler-groups
 [views]: https://github.com/tipsy/j2html/blob/master/j2html-website/src/main/java/app/views/MainView.java
