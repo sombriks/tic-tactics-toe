@@ -10,13 +10,13 @@ import java.nio.charset.StandardCharsets;
 public class ClasspathTemplateLoader implements TemplateLoader {
     @Override
     public long getLastModified(String name) throws IOException {
-        return 1;
+        return System.currentTimeMillis();
     }
 
     @Override
     public Reader getReader(String name) throws IOException {
         name = getBase() + name + getExtension();
-        return new InputStreamReader(ClasspathTemplateLoader.class.getResourceAsStream(name), StandardCharsets.UTF_8);
+        return new InputStreamReader(getClass().getResourceAsStream(name), StandardCharsets.UTF_8);
     }
 
     @Override

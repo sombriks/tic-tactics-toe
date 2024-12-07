@@ -3,7 +3,6 @@ package io.sombriks.configs;
 import de.neuland.pug4j.PugConfiguration;
 import de.neuland.pug4j.template.PugTemplate;
 import io.javalin.config.JavalinConfig;
-import org.h2.store.fs.FilePath;
 
 import java.io.IOException;
 import java.util.Map;
@@ -23,6 +22,7 @@ public class TemplateConfig {
                 throw new RuntimeException(e);
             }
         });
+        pugConfig.setPrettyPrint(true);
         pugConfig.setTemplateLoader(new ClasspathTemplateLoader());
     }
 
