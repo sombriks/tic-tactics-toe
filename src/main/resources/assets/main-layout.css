@@ -1,18 +1,52 @@
+:root {
+    --card-size: 128px;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: darkslateblue;
+        background-color: black;
         color: aquamarine;
     }
 }
 
-.content{
+.content, .deck, .board, .card {
+    border: 1px red solid;
+}
 
+.content {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 4fr;
+    max-width: 800px;
+    min-width: 800px;
 }
 
 .deck {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: start;
 }
 
 .board {
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-wrap: wrap;
+}
 
+.deck>.card, .board>.card {
+    min-width: var(--card-size);
+    min-height: var(--card-size);
+    max-width: var(--card-size);
+    max-height: var(--card-size);
+    border-radius: 5px;
+    margin: 1rem;
+}
+
+.deck>.card {
+}
+
+
+.board>.card {
 }
