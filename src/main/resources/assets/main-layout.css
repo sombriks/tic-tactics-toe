@@ -45,8 +45,11 @@
 }
 
 .deck>.card {
+    border: 1px lawngreen solid;
+
 }
 
 
 .board>.card {
+    border: 1px cadetblue solid;
 }
