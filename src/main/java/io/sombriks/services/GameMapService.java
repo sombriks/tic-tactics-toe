@@ -14,7 +14,7 @@ public class GameMapService {
   public GameMap find(Long mapId) {
     return database.jdbi
         .withHandle(handle -> handle
-            .createQuery("select * from game_maps where id = :mapId")
+            .createQuery("select * from maps where id = :mapId")
             .bind("mapId", mapId)
             .mapTo(GameMap.class).one());
   }

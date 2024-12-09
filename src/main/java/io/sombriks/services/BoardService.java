@@ -22,7 +22,7 @@ public class BoardService {
   public List<Board> list(Long mapId) {
     return database.jdbi.withHandle(handle -> handle.createQuery("""
                 select * from boards
-                 where game_maps_id = :mapId
+                 where maps_id = :mapId
             """).bind("mapId", mapId)
         .mapTo(Board.class).list());
   }
@@ -30,7 +30,7 @@ public class BoardService {
   public Board find(Board board) {
     return database.jdbi.withHandle(handle -> handle.createQuery("""
                 select * from boards
-                 where id = :id and game_maps_id = :mapId
+                 where id = :id and maps_id = :mapId
             """).bindMethods(board)
         .mapTo(Board.class).one());
   }
@@ -38,7 +38,7 @@ public class BoardService {
   public Long insert(Board board) {
     LOG.info("insert");
     return database.jdbi.withHandle(handle -> handle.createUpdate("""
-             insert into boards (game_maps_id)
+             insert into boards (maps_id)
               values (:mapId)
             """).bind("mapId", board.mapId())
         .executeAndReturnGeneratedKeys("id")
