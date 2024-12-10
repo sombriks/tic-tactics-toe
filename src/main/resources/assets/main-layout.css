@@ -46,9 +46,12 @@
 
 .deck>.card {
     border: 1px lawngreen solid;
-
+    margin-top:-5rem;
 }
 
+.deck>.card:first-child {
+    margin-top:1rem;
+}
 
 .board>.card {
     border: 1px cadetblue solid;
