@@ -28,7 +28,7 @@ public class TictacticstoeTest {
             var result = client.get("/");
             assertThat(result.code(), is(200));
             assertThat(result.body(), is(notNullValue()));
-            assertThat(result.body().string(), containsString(""));
+            assertThat(result.body().string(), containsString("content"));
         });
     }
 }

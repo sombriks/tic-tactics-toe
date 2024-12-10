@@ -35,6 +35,17 @@
     flex-wrap: wrap;
 }
 
+.card {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    background-color: black;
+}
+
+.card>div {
+    width: 1rem;
+}
+
 .deck>.card, .board>.card {
     min-width: var(--card-size);
     min-height: var(--card-size);
