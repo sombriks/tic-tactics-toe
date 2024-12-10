@@ -10,40 +10,10 @@ html
     body
         .content
             .deck
-                .card.attacker(data-cp="4", data-card-id="123" data-deck-id="123")
-                    div 4
-                .card.attacker
-                    div 7
-                .card.attacker
-                    div 1
-                .card.attacker
-                    div 15
-                .card.attacker
-                    div 2
-                .card.attacker
-                    div 2
-                .card.attacker
-                    div 9
-                .card.attacker
-                    div 6
-                .card.attacker
-                    div 11
+              each val in [1,2,3,4,5,6,7,8,9]
+                  .card.attacker(data-cp="4", data-card-id="123" data-deck-id="123")
+                      div= val
             .board
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
-                .card.defender
-                    div ?
+              each val in [1,2,3,4,5,6,7,8,9]
+                  .card.defender
+                      div ?
