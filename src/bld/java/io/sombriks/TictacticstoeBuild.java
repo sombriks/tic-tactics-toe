@@ -24,10 +24,7 @@ public class TictacticstoeBuild extends Project {
                 .include(dependency("commons-io:commons-io:2.16.1"))
                 .include(dependency("org.slf4j:slf4j-simple:2.0.16"))
                 .include(dependency("de.neuland-bfi:pug4j:2.2.0"))
-                .include(dependency("io.javalin:javalin:6.3.0"));
-
-        //
-        scope(runtime)
+                .include(dependency("io.javalin:javalin:6.3.0"))
                 .include(dependency("org.webjars.npm:alpinejs:3.14.3"))
                 .include(dependency("org.webjars.npm:htmx.org:2.0.2"));
 

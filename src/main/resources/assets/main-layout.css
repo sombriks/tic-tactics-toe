@@ -23,7 +23,7 @@
 
 .deck {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     align-content: start;
 }
@@ -38,7 +38,7 @@
 .card {
     display: flex;
     justify-content: center;
-    /*align-items: center;*/
+    align-items: center;
     background-color: black;
 }
 
@@ -57,7 +57,7 @@
 
 .deck>.card {
     border: 1px lawngreen solid;
-    margin-top:-5rem;
+    margin-bottom:-8rem;
 }
 
 .deck>.card:first-child {
