@@ -8,7 +8,12 @@ create table if not exists maps
 -- players may exist even without a map
 create table if not exists players
 (
-    id identity primary key
+    id identity primary key,
+    uid varchar(255) unique not null,
+    handle varchar(255) unique not null,
+    email varchar(255) unique,
+    created timestamp not null default now(),
+    updated timestamp default now()
 );
 
 create table if not exists boards
