@@ -30,8 +30,6 @@ public class MapController {
         GameMap map = gameMapService.find(mapId);
         List<Board> boards = boardService.list(mapId);
         context.render("index", Map.of("map", map, "boards", boards));
-//    GameMapsPage gameMapsPage = new GameMapsPage(map, boards); // dynamic content maybe
-//    context.html(mainLayout.layout(gameMapsPage).render());
     }
 
     public void find(@NotNull Context context) {
@@ -39,7 +37,6 @@ public class MapController {
         Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
         GameMap map = gameMapService.find(mapId);
         List<Board> boards = boardService.list(mapId);
-//    GameMapsPage gameMapsPage = new GameMapsPage(map, boards); // dynamic content maybe
-//    context.html(gameMapsPage.content().render());
+        context.render("index", Map.of("map", map, "boards", boards));
     }
 }
