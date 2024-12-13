@@ -21,7 +21,49 @@ values ('the bush', 'simple, harmless bush sitting in the field', 1),
        ('ancient evil', 'unspeakable evil', 89),
        ('bob', 'hi bob', 144);
 
+-- player 1 cards
 
+insert into cards (players_id,card_types_id,current_combat_power)
+values (1,1,1),
+       (1,2,1),
+       (1,3,2),
+       (1,3,2),
+       (1,3,2),
+       (1,4,3),
+       (1,3,2),
+       (1,5,5),
+       (1,5,5),
+       (1,5,5),
+       (1,6,8),
+       (1,7,13),
+       (1,3,2),
+       (1,3,2),
+       (1,4,3),
+       (1,4,3),
+       (1,3,2),
+       (1,1,1);
+
+-- player 2 cards
+
+insert into cards (players_id,card_types_id,current_combat_power)
+values (2,1,1),
+       (2,2,1),
+       (2,3,2),
+       (2,3,2),
+       (2,3,2),
+       (2,4,3),
+       (2,3,2),
+       (2,5,5),
+       (2,5,5),
+       (2,5,5),
+       (2,6,8),
+       (2,7,13),
+       (2,3,2),
+       (2,3,2),
+       (2,4,3),
+       (2,4,3),
+       (2,3,2),
+       (2,1,1);
 
 insert into boards(maps_id, players_id)
 values (1, 1);
