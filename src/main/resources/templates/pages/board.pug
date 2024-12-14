@@ -1,19 +1,16 @@
 extends ../layouts/main
+include ../controls/title
+include ../components/card
+
+block in_head
+    +title("Board")
 block in_body
     .content(x-data="{deck:[]}")
         .deck(data-challenge-id="123")
           each v in [1,2,3,4,5,6,7,8,9]
-              .card.attacker(
-                  data-cp=v,
-                  data-card-id="123"
-                  data-status="ready"
-                  x-init="deck.push($el)")
+              +card(v,123,"ready")(class="attacker",x-init="deck.push($el)")
                   div= v
         .board(data-board-id="123")
           each v in [1,2,3,4,5,6,7,8,9]
-              .card.defender(
-                  data-cp="4",
-                  data-card-id="123"
-                  data-status="face-down"
-                  @click="$store.ttt.attack($el, deck)")
+              +card(v,456,"face-down")(class="defender",@click="$store.ttt.attack($el, deck)")
                   div ?
