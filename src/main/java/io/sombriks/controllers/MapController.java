@@ -29,7 +29,7 @@ public class MapController {
         Long mapId = context.queryParamAsClass("id", Long.class).getOrDefault(1L);
         GameMap map = gameMapService.find(mapId);
         List<Board> boards = boardService.list(mapId);
-        context.render("index", Map.of("map", map, "boards", boards));
+        context.render("pages/board", Map.of("map", map, "boards", boards));
     }
 
     public void find(@NotNull Context context) {

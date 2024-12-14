@@ -26,9 +26,7 @@ Alpine.store("ttt", {
     // check if we got the square in the board
     if (card.dataset.cp < 0) {
       card.dataset.cp *= -1
-      // TODO get from css variables
-      console.log(getComputedStyle(aCard).border)
-      card.style.borderColor =  getComputedStyle(aCard).getPropertyValue("borderColor")
+      card.className="card attacker"
       card.dataset.status = "taken"
     }
 

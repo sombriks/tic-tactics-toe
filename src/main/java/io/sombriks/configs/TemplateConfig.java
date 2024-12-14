@@ -1,6 +1,7 @@
 package io.sombriks.configs;
 
 import de.neuland.pug4j.PugConfiguration;
+import de.neuland.pug4j.template.ClasspathTemplateLoader;
 import de.neuland.pug4j.template.PugTemplate;
 import io.javalin.config.JavalinConfig;
 
@@ -23,7 +24,7 @@ public class TemplateConfig {
             }
         });
         pugConfig.setPrettyPrint(true);
-        pugConfig.setTemplateLoader(new ClasspathTemplateLoader());
+        pugConfig.setTemplateLoader(new ClasspathTemplateLoader("templates"));
     }
 
 }

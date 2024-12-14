@@ -58,7 +58,6 @@
 }
 
 .deck > .card {
-    border: var(--attacker-card);
     margin-bottom: -8rem;
 }
 
@@ -66,6 +65,14 @@
     margin-top: 1rem;
 }
 
-.board > .card {
+/*.board > .card {*/
+/*    border: var(--defender-card);*/
+/*}*/
+
+.attacker {
+    border: var(--attacker-card);
+}
+
+.defender {
     border: var(--defender-card);
 }

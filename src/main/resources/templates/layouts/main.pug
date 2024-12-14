@@ -1,0 +1,13 @@
+mixin title(pageTitle)
+    title= `Tic Tactics Toe - ${pageTitle}`
+doctype html
+html
+    head
+        title Tic Tactics Toe
+        meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=2.0")
+        script(type="text/javascript" src="/webjars/htmx.org/2.0.3/dist/htmx.js")
+        script(type="text/javascript" src="/webjars/alpinejs/3.14.3/dist/cdn.js" defer)
+        script(type="text/javascript" src="/main-layout.js" defer)
+        link(rel="stylesheet" href="/main-layout.css")
+    body
+        block in_body
