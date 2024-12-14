@@ -38,7 +38,8 @@ Or:
 ## Noteworthy
 
 - I enjoy the elegance of the [ApiBuilder][handler-group] very much.
-- Webjars helps me to keep all dependency version [in one place][project].
+- [Webjars][webjars] helps me to keep all dependency version
+  [in one place][project].
 - The [jdbi constructor mapper][constructor-mapper] works great with java
   records.
 - uberjar seems broken
@@ -56,4 +57,5 @@ Or:
 [handler-group]: https://javalin.io/documentation#handler-groups
 [views]: https://github.com/tipsy/j2html/blob/master/j2html-website/src/main/java/app/views/MainView.java
 [project]: src/bld/java/io/sombriks/TictacticstoeBuild.java
+[webjars]: https://www.webjars.org/
 [constructor-mapper]: https://jdbi.org/#_constructormapper

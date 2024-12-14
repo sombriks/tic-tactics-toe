@@ -32,11 +32,12 @@ create table if not exists card_types
 create table if not exists cards
 (
     id                   identity primary key,
-    current_combat_power integer   not null default 1,
-    players_id           integer   not null references players (id) on delete cascade,
-    card_types_id        integer   not null references card_types (id) on delete cascade,
-    created              timestamp not null default now(),
-    updated              timestamp          default now()
+    current_combat_power integer      not null default 1,
+    status               varchar(255) not null default 'ready',
+    players_id           integer      not null references players (id) on delete cascade,
+    card_types_id        integer      not null references card_types (id) on delete cascade,
+    created              timestamp    not null default now(),
+    updated              timestamp             default now()
 );
 
 create table if not exists decks
@@ -44,7 +45,6 @@ create table if not exists decks
     id          identity primary key,
     description text      not null,
     players_id  integer   not null references players (id) on delete cascade,
-    cards_id    integer   not null references cards (id) on delete cascade,
     created     timestamp not null default now(),
     updated     timestamp          default now()
 );
@@ -88,6 +88,7 @@ create table if not exists decks_cards
 (
     decks_id integer   not null references decks (id) on delete cascade,
     cards_id integer   not null references cards (id) on delete cascade,
+    position integer   not null default 1 check position in (1, 2, 3, 4, 5, 6, 7, 8, 9),
     created  timestamp not null default now(),
     updated  timestamp          default now(),
     primary key (decks_id, cards_id)
@@ -95,9 +96,19 @@ create table if not exists decks_cards
 
 create table if not exists boards_cards
 (
-    boards_id integer   not null references boards (id) on delete cascade,
-    cards_id  integer   not null references cards (id) on delete cascade,
-    created   timestamp not null default now(),
-    updated   timestamp          default now(),
+    boards_id integer        not null references boards (id) on delete cascade,
+    cards_id  integer unique not null references cards (id) on delete cascade,
+    position integer   not null default 1 check position in (1, 2, 3, 4, 5, 6, 7, 8, 9),
+    created   timestamp      not null default now(),
+    updated   timestamp               default now(),
     primary key (boards_id, cards_id)
+);
+
+create table if not exists challenges_cards
+(
+    challenges_id integer        not null references challenges (id) on delete cascade,
+    cards_id      integer unique not null references cards (id) on delete cascade,
+    created       timestamp      not null default now(),
+    updated       timestamp               default now(),
+    primary key (challenges_id, cards_id)
 );

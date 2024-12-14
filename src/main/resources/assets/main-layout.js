@@ -27,7 +27,8 @@ Alpine.store("ttt", {
     if (card.dataset.cp < 0) {
       card.dataset.cp *= -1
       // TODO get from css variables
-      card.style.borderColor = "lawngreen"
+      console.log(getComputedStyle(aCard).border)
+      card.style.borderColor =  getComputedStyle(aCard).getPropertyValue("borderColor")
       card.dataset.status = "taken"
     }
 
