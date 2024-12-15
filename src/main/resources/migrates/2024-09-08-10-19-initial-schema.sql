@@ -33,7 +33,7 @@ create table if not exists cards
 (
     id                   identity primary key,
     current_combat_power integer      not null default 1,
-    status               varchar(255) not null default 'ready' check status in ('ready', 'face-down', 'taken', 'destroyed'),
+    status               varchar(255) not null default 'available' check status in ('available', 'ready', 'face-down', 'taken', 'destroyed'),
     players_id           integer      not null references players (id) on delete cascade,
     card_types_id        integer      not null references card_types (id) on delete cascade,
     created              timestamp    not null default now(),
@@ -98,7 +98,7 @@ create table if not exists boards_cards
 (
     boards_id integer        not null references boards (id) on delete cascade,
     cards_id  integer unique not null references cards (id) on delete cascade,
-    position integer   not null default 1 check position in (1, 2, 3, 4, 5, 6, 7, 8, 9),
+    position  integer        not null default 1 check position in (1, 2, 3, 4, 5, 6, 7, 8, 9),
     created   timestamp      not null default now(),
     updated   timestamp               default now(),
     primary key (boards_id, cards_id)

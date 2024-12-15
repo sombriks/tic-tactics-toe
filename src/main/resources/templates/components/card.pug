@@ -1,3 +1,7 @@
 mixin card(cp,id,status)
     .card(data-cp=cp data-card-id=id data-status=status)&attributes(attributes)
-        block
+        if status == "face-down"
+            div ?
+        else
+            div= cp
+

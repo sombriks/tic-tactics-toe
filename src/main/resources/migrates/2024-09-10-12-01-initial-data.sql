@@ -23,51 +23,74 @@ values ('the bush', 'simple, harmless bush sitting in the field', 1),
 
 -- player 1 cards
 
-insert into cards (players_id,card_types_id,current_combat_power)
-values (1,1,1),
-       (1,2,1),
-       (1,3,2),
-       (1,3,2),
-       (1,3,2),
-       (1,4,3),
-       (1,3,2),
-       (1,5,5),
-       (1,5,5),
-       (1,5,5),
-       (1,6,8),
-       (1,7,13),
-       (1,3,2),
-       (1,3,2),
-       (1,4,3),
-       (1,4,3),
-       (1,3,2),
-       (1,1,1);
+insert into cards (players_id,card_types_id,status,current_combat_power)
+values (1,1,'ready',1),
+       (1,2,'ready',1),
+       (1,3,'ready',2),
+       (1,3,'ready',2),
+       (1,3,'ready',2),
+       (1,4,'ready',3),
+       (1,3,'ready',2),
+       (1,5,'ready',5),
+       (1,5,'ready',5),
+       (1,5,'ready',5),
+       (1,6,'ready',8),
+       (1,7,'ready',13),
+       (1,3,'ready',2),
+       (1,3,'ready',2),
+       (1,4,'ready',3),
+       (1,4,'ready',3),
+       (1,3,'ready',2),
+       (1,1,'ready',1);
 
 -- player 2 cards
 
-insert into cards (players_id,card_types_id,current_combat_power)
-values (2,1,1),
-       (2,2,1),
-       (2,3,2),
-       (2,3,2),
-       (2,3,2),
-       (2,4,3),
-       (2,3,2),
-       (2,5,5),
-       (2,5,5),
-       (2,5,5),
-       (2,6,8),
-       (2,7,13),
-       (2,3,2),
-       (2,3,2),
-       (2,4,3),
-       (2,4,3),
-       (2,3,2),
-       (2,1,1);
+insert into cards (players_id,card_types_id,status,current_combat_power)
+values (2,1, 'ready',1),
+       (2,2, 'ready',1),
+       (2,3, 'ready',2),
+       (2,3, 'ready',2),
+       (2,3, 'ready',2),
+       (2,4, 'ready',3),
+       (2,3, 'ready',2),
+       (2,5, 'ready',5),
+       (2,5, 'ready',5),
+       (2,5, 'ready',5),
+       (2,6, 'ready',8),
+       (2,7, 'ready',13),
+       (2,3, 'ready',2),
+       (2,3, 'ready',2),
+       (2,4, 'ready',3),
+       (2,4, 'ready',3),
+       (2,3, 'ready',2),
+       (2,1, 'ready',1);
 
 insert into boards(maps_id, players_id)
 values (1, 1);
 
+-- 9 defender cards in a board
+insert into boards_cards (boards_id, cards_id)
+values (1,1),
+       (1,3),
+       (1,5),
+       (1,7),
+       (1,9),
+       (1,11),
+       (1,2),
+       (1,4),
+       (1,6);
+
 insert into challenges(boards_id, players_id)
 values (1, 2);
 
+-- 9 attacker card in a challenge
+insert into challenges_cards (challenges_id, cards_id)
+values (1,18),
+       (1,16),
+       (1,14),
+       (1,1),
+       (1,2),
+       (1,3),
+       (1,17),
+       (1,7),
+       (1,9);
