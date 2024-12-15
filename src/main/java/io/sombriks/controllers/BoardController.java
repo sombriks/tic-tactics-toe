@@ -8,38 +8,41 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
+
 public class BoardController {
 
-  private static final Logger LOG = LoggerFactory.getLogger(BoardController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BoardController.class);
 
-  private final BoardService boardService;
+    private final BoardService boardService;
 
-  public BoardController(BoardService boardService) {
-    this.boardService = boardService;
-  }
-
-  public void index(@NotNull Context context) {
-    LOG.info("index");
-//    context.status(404).html(mainLayout.layout(new NotFound("Please provide boardId")).render());
-  }
-
-  public void find(@NotNull Context context) {
-    LOG.info("find");
-    Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
-    Long boardId = context.pathParamAsClass("boardId", Long.class).get();
-    Board board = boardService.find(new Board(boardId, mapId));
-    if ("true".equals(context.header("HX-Request"))) {
-//      context.html(new BoardItem(board).content().render());
-    } else {
-//      context.html(mainLayout.layout(new BoardsPage(board)).render());
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
     }
-  }
 
-  public void insert(@NotNull Context context) {
-    LOG.info("insert");
-    Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
-    Board board = new Board(null, mapId);
-    Long id = boardService.insert(board);
-    context.redirect("/maps/" + mapId + "/boards/" + id, HttpStatus.SEE_OTHER);
-  }
+    public void index(@NotNull Context context) {
+        LOG.info("index");
+//    context.status(404).html(mainLayout.layout(new NotFound("Please provide boardId")).render());
+    }
+
+    public void find(@NotNull Context context) {
+        LOG.info("find");
+        Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
+        Long boardId = context.pathParamAsClass("boardId", Long.class).get();
+        Board board = boardService.find(new Board(boardId, mapId));
+        context.render("pages/board", Map.of("board", board));
+        if ("true".equals(context.header("HX-Request"))) {
+//      context.html(new BoardItem(board).content().render());
+        } else {
+//      context.html(mainLayout.layout(new BoardsPage(board)).render());
+        }
+    }
+
+    public void insert(@NotNull Context context) {
+        LOG.info("insert");
+        Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
+        Board board = new Board(null, mapId);
+        Long id = boardService.insert(board);
+        context.redirect("/maps/" + mapId + "/boards/" + id, HttpStatus.SEE_OTHER);
+    }
 }

@@ -4,19 +4,18 @@ Alpine.store("ttt", {
 
   /**
    * @param {HTMLElement} card
-   * @param {HTMLElement[]} deck
    *
    * @param {Number} card.dataset.cp
    */
-  attack(card, deck) {
+  attack(card) {
+    const deck = document.querySelectorAll(".deck .attacker");
+    const board = document.querySelectorAll(".board .defender");
     // no cards, game over
     if (!deck.length) return
     // TODO there is a line, game over
 
-
     // burn top card on deck
-    deck[0].parentElement.removeChild(deck[0])
-    const aCard = deck.shift()
+    const aCard = deck[0].parentElement.removeChild(deck[0])
 
     // fight if not taken
     if ("taken" !== card.dataset.status) {

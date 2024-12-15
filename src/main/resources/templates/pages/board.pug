@@ -5,11 +5,11 @@ include ../components/card
 block in_head
     +title("Board")
 block in_body
-    .content(x-data="{deck:[]}")
+    .content
         .deck(data-challenge-id="123")
           each v in [1,2,3,4,5,6,7,8,9]
-              +card(v,123,"ready")(class="attacker",x-init="deck.push($el)")
+              +card(v,123,"ready")(class="attacker")
         .board(data-board-id="456")
           each v in [1,2,3,4,5,6,7,8,9]
-              +card(v,456,"face-down")(class="defender",@click="$store.ttt.attack($el, deck)")
+              +card(v,456,"face-down")(class="defender",@click="$store.ttt.attack($el)")
 
