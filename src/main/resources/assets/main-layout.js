@@ -12,8 +12,11 @@ Alpine.store("ttt", {
     const deck = document.querySelectorAll(".deck .attacker");
     const board = document.querySelectorAll(".board .card");
 
-    // no cards, challenge over
+    // no cards left on deck, challenge over
     if (!deck.length) return
+
+    // card already taken, nothing to do
+    if (card.dataset.status === "taken") return
 
     // there is a line, challenge over
     if (this.checkLines(board)) return
@@ -43,18 +46,20 @@ Alpine.store("ttt", {
   },
   checkLines(board) {
     if (!board) return false
-    const statuses = [[], [], []]
-    statuses[0][0] = board[0].dataset.status
-    statuses[0][1] = board[1].dataset.status
-    statuses[0][2] = board[2].dataset.status
-    statuses[1][0] = board[3].dataset.status
-    statuses[1][1] = board[4].dataset.status
-    statuses[1][2] = board[5].dataset.status
-    statuses[2][0] = board[6].dataset.status
-    statuses[2][1] = board[7].dataset.status
-    statuses[2][2] = board[8].dataset.status
-    // any horizontal
+    let statuses = ""
+    let i = -1
+    while (++i < 9) statuses += board[i].dataset.status === "taken" ? "1" : "0"
     console.log(statuses)
+    const wins = [
+      "111000000",
+      "000111000",
+      "000000111",
+      "100100100",
+      "010010010",
+      "001001001",
+      "100010001",
+      "001010100"
+    ]
     return false
   }
 })
