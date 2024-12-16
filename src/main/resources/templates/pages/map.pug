@@ -3,3 +3,9 @@ include  ../controls/title
 
 block in_head
     +title("Map")
+block in_body
+    h1= map.name()
+    ul
+        for board in boards
+            li
+                a(href=`/maps/${map.id()}/boards/${board.id()}`)= `board \#${board.id()}`

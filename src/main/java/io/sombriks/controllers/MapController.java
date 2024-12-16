@@ -37,6 +37,6 @@ public class MapController {
         Long mapId = context.pathParamAsClass("mapId", Long.class).getOrDefault(1L);
         GameMap map = gameMapService.find(mapId);
         List<Board> boards = boardService.list(mapId);
-        context.render("index", Map.of("map", map, "boards", boards));
+        context.render("pages/map", Map.of("map", map, "boards", boards));
     }
 }
