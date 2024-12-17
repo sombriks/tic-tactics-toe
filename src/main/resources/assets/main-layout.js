@@ -49,17 +49,19 @@ Alpine.store("ttt", {
     let statuses = ""
     let i = -1
     while (++i < 9) statuses += board[i].dataset.status === "taken" ? "1" : "0"
-    console.log(statuses)
+    statuses = parseInt(statuses, 2)
     const wins = [
-      "111000000",
-      "000111000",
-      "000000111",
-      "100100100",
-      "010010010",
-      "001001001",
-      "100010001",
-      "001010100"
+      0b111000000,
+      0b000111000,
+      0b000000111,
+      0b100100100,
+      0b010010010,
+      0b001001001,
+      0b100010001,
+      0b001010100
     ]
+    i = 8
+    while (i-- > 0) if ((statuses & wins[i]).toString(2) === wins[i].toString(2)) return true
     return false
   }
 })

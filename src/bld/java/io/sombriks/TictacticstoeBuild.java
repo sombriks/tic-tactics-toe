@@ -26,13 +26,13 @@ public class TictacticstoeBuild extends Project {
                 .include(dependency("de.neuland-bfi:pug4j:2.2.0"))
                 .include(dependency("io.javalin:javalin:6.3.0"))
                 .include(dependency("org.webjars.npm:alpinejs:3.14.3"))
-                .include(dependency("org.webjars.npm:htmx.org:2.0.3"));
+                .include(dependency("org.webjars.npm:htmx.org:2.0.4"));
 
         scope(test)
                 .include(dependency("org.hamcrest:hamcrest:3.0"))
                 .include(dependency("io.javalin:javalin-testtools:6.3.0"))
-                .include(dependency("org.junit.jupiter:junit-jupiter:5.11.3"))
-                .include(dependency("org.junit.platform:junit-platform-console-standalone:1.11.3"));
+                .include(dependency("org.junit.jupiter:junit-jupiter:5.11.4"))
+                .include(dependency("org.junit.platform:junit-platform-console-standalone:1.11.4"));
     }
 
     public static void main(String[] args) {
