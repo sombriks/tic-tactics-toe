@@ -58,3 +58,6 @@ atlassian-ide-plugin.xml
 # H2 files
 *.mv.db
 *.trace.db
+
+dist
+node_modules

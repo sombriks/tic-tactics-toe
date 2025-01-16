@@ -1,0 +1,30 @@
+{
+  "name": "tic-tactics-toe",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "sombriks",
+  "description": "casual 'card' game",
+  "keywords": [
+    "ssg",
+    "eleventy",
+    "casual",
+    "game"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --incremental",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-pug": "^1.0.0",
+    "alpinejs": "^3.14.8",
+    "js-yaml": "^4.1.0",
+    "rimraf": "^6.0.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
