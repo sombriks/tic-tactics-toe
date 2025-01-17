@@ -1,0 +1,9 @@
+:root {
+    font-family: Monospaced, monospace;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: aliceblue;
+        background-color: black;
+    }
+}
