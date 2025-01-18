@@ -25,6 +25,8 @@ jobs:
       - run: |
           npm install
           npm run build
+        env:
+          BASE_URL: /tic-tactics-toe
       - uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
