@@ -13,3 +13,9 @@ table.attacker, table.defender {
 table.defender, table.defender tr, table.defender td {
     border-color: lightcoral;
 }
+
+.grid-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
