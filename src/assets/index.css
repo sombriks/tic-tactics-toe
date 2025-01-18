@@ -2,9 +2,14 @@
     font-family: Monospaced, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        color: aliceblue;
-        background-color: black;
-    }
+table.attacker, table.attacker tr, table.attacker td {
+    border-color: aqua;
+}
+
+table.attacker, table.defender {
+    min-height: calc(30vw);
+}
+
+table.defender, table.defender tr, table.defender td {
+    border-color: lightcoral;
 }

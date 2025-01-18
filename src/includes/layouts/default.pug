@@ -3,9 +3,10 @@ html
     head
         title #{title}
         meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet", href=`${process.env.BASE_URL || ""}/reset.css`)
-    link(rel="stylesheet", href=`${process.env.BASE_URL || ""}/tmw.css`)
-    link(rel="stylesheet", href=`${process.env.BASE_URL || ""}/index.css`)
-    script(type="text/javascript" src=`${process.env.BASE_URL || ""}/alpine.js` defer="") 
-    script(type="text/javascript" src=`${process.env.BASE_URL || ""}/index.js`) 
+        - const base = process.env.BASE_URL || ""
+        link(rel="stylesheet", href=`${base}/reset.css`)
+        link(rel="stylesheet", href=`${base}/tmw.css`)
+        link(rel="stylesheet", href=`${base}/index.css`)
+        script(type="text/javascript" src=`${base}/alpine.js` defer="") 
+        script(type="text/javascript" src=`${base}/index.js`) 
     body(x-data="") !{content}
