@@ -2,7 +2,9 @@ doctype html
 html
     head
         title #{title}
-        link(rel="stylesheet" href="index.css")
-        script(type="text/javascript" src="alpine.js" defer="")
-        script(type="text/javascript" src="index.js")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href=`${process.env.BASE_URL || ""}/reset.css`)
+    link(rel="stylesheet", href=`${process.env.BASE_URL || ""}/index.css`)
+    script(type="text/javascript" src=`${process.env.BASE_URL || ""}/alpine.js` defer="") 
+    script(type="text/javascript" src=`${process.env.BASE_URL || ""}/index.js`) 
     body(x-data="") !{content}
