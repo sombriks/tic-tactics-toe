@@ -1,8 +1,5 @@
 :root {
     font-family: Monospaced, monospace;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,8 +7,4 @@
         color: aliceblue;
         background-color: black;
     }
-}
-
-.w100 {
-    width: 100%;
 }
