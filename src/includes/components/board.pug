@@ -1,0 +1,14 @@
+mixin board(id)
+  table.board 
+    thead
+      tr
+        th(colspan="3")= `Challenge #${id}`
+    tbody
+      - for(let i = 0; i < 3; i++)
+        tr 
+          - for(let j = 0; j < 3; j++)
+            td 
+    tfoot
+      tr
+        td(colspan="3") CP: 34 W: 2 L: 1 D:0
+  

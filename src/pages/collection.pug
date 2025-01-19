@@ -2,14 +2,8 @@
 layout: layouts/default.pug
 title: Card Collection
 ---
-h1 #{title}
-.grid
-  p
-    a(href=`..`) Back 
+include ../includes/components/card.pug
+a(href=`..`) Back 
 .grid-wrap
   - for(let i = 0 ; i < 151 ; i++)
-    pre. 
-      ┌──────┐
-      │   *  │
-      │..    │
-      └──────┘ 
+    +card
