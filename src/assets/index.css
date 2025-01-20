@@ -2,10 +2,6 @@
     font-family: Monospaced, monospace;
 }
 
-table.board {
-    min-height: calc(50vw);
-}
-
 .grid-wrap {
     display: flex;
     flex-wrap: wrap;
