@@ -1,14 +1,5 @@
 include ./card.pug
 mixin deck
-    table.deck
-        thead
-            tr
-                th(colspan="6") CP: 22/15
-                th
-                    a(href="../collection") Collection
-        tbody
-            tr
-                td(colspan="7")
-                    .grid-wrap
-                        - for(let i = 0; i < 9 ; i++)
-                            +card(i)
+    .deck
+        div Next
+        +card(i)

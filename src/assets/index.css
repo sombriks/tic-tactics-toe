@@ -7,3 +7,12 @@
     flex-wrap: wrap;
     align-items: center;
 }
+
+.row {
+    display: flex;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
