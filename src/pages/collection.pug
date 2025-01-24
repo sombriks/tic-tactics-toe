@@ -1,9 +1,0 @@
----
-layout: layouts/default.pug
-title: Card Collection
----
-include ../includes/components/card.pug
-a(href=`..`) Back 
-.grid-wrap
-  - for(let i = 0 ; i < 151 ; i++)
-    +card(i+1)
