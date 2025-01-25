@@ -1,46 +1,46 @@
 types:
-  - name: Knight
-    type: KNT
+  KNT:
+    name: Knight
     description: Versed warrior
     attack: 5
     defense: 4
-  - name: Wizard
-    type: WZD
+  WZD:
+    name: Wizard
     description: Old trained magician
     attack: 2
     defense: 7
-  - name: Archer
-    type: ACH
+  ACH:
+    name: Archer
     description: Skilled sniper
     attack: 3
     defense: 6
-  - name: Barbarian
-    type: BRB
+  BRB:
+    name: Barbarian
     description: Wild fighter
     attack: 7
     defense: 2
-  - name: Druid
-    type: DRD
+  DRD:
+    name: Druid
     description: One with the nature
     attack: 4
     defense: 5
-  - name: Rogue
-    type: RGE
+  RGE:
+    name: Rogue
     description: Silent infiltrator
     attack: 2
     defense: 7
-  - name: Paladin
-    type: PLD
+  PLD:
+    name: Paladin
     description: Holy warrior
     attack: 8
     defense: 1
-  - name: Necromancer
-    type: NCR
+  NCR:
+    name: Necromancer
     description: Scholar of undead
     attack: 2
     defense: 7
-  - name: Monk
-    type: MNK
+  MNK:
+    name: Monk
     description: Master of meditation and bare-hands fight
     attack: 1
     defense: 8

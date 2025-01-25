@@ -6,7 +6,7 @@ import yaml from "js-yaml"
 export default async function (eleventyConfig) {
   // Configure Eleventy
   eleventyConfig.addPlugin(pugPlugin)
-  eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents))
+  eleventyConfig.addDataExtension("yml,yaml", (contents) => yaml.load(contents))
   eleventyConfig.setOutputDirectory("dist")
   eleventyConfig.setInputDirectory("src/pages")
   eleventyConfig.setIncludesDirectory("../includes")

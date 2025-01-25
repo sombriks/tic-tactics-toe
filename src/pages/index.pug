@@ -9,21 +9,11 @@ table
   tr
     td(rowspan="3")
       .col-rev
-        each c in Object.keys(data) 
-          pre.square.in-deck.attacker= `${c}`
-        pre.square.in-deck.attacker
-          .
-            KNT 
-            A: 5
-            D: 4
-        pre.square.in-deck.attacker 2
-        pre.square.in-deck.attacker 3
-        pre.square.in-deck.attacker 4
-        pre.square.in-deck.attacker 5
-        pre.square.in-deck.attacker 6
-        pre.square.in-deck.attacker 7
-        pre.square.in-deck.attacker 8
-        pre.square.in-deck.attacker 9
+        each c in cards.deck
+          pre.square.in-deck.attacker.
+            #{c.type}
+            A: #{cards.types[c.type].attack}
+            D: #{cards.types[c.type].defense}
     td
     td(rowspan="3") 
       .col
@@ -33,29 +23,14 @@ table
   tr
     td 
       .col
-        .row 
-          pre.square.in-board.defender
-            .
-              WZD
-              A: 2
-              D: 7
-          pre.square.in-board.defender
-            .
-              NCR
-              A: 2
-              D: 7
-          pre.square.in-board.defender
-            .
-              ???
+        - for (let i = 0 ; i < 3 ; i++)
+          .row
+            - for (let j = 0 ; j < 3 ; j++)
+              - let c = cards.board[j]
+              pre.square.in-board.defender.
+                #{c.type}
+                A: #{cards.types[c.type].attack}
+                D: #{cards.types[c.type].defense}
 
-
-        .row
-          pre.square.in-board.defender
-          pre.square.in-board.defender
-          pre.square.in-board.defender
-        .row
-          pre.square.in-board.defender
-          pre.square.in-board.defender
-          pre.square.in-board.defender
   tr
     td CP: 10/15
