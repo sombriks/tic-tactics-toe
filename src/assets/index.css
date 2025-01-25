@@ -46,5 +46,13 @@ body {
 }
 
 .in-deck {
-  margin-top: -2rem;
+  margin-top: -4rem;
+}
+
+.attacker {
+  border: 1px solid green;
+}
+
+.defender {
+  border: 1px solid yellow;
 }
