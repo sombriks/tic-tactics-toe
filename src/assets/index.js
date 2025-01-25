@@ -54,7 +54,29 @@ function checkFinish() {
   // winning finish if:
   // - one line taken (row, col, diag) 
   // - deck is empty (9 moves)
-  //   - total CP (a+d) on board
+
+  let score = 0;
+  let squares = 9;
+  for (let i = 0; i < challenge.length; i++) {
+    if (challenge[i] > 0) {
+      squares++
+      score += Math.pow(2, i)
+    }
+  }
+
+  // win table      84
+  //
+  //  1   2   4      7 
+  //  8  16  32     56
+  // 64 128 256    448
+  //
+  // 73 146 292    273 
+  const winvalues = [7, 56, 448, 73, 146, 292, 84, 273]
+  if (winvalues.find(v => (v & score) == v)) {
+    console.log("line, column or diagonal taken, you won!")
+    finished = true
+  }
+
   if (moves.length == 9) {
     console.log("deck is empty, game over!")
     finished = true
