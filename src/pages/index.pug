@@ -9,11 +9,13 @@ table
   tr
     td(rowspan="3")
       .col-rev
+        each c in Object.keys(data) 
+          pre.square.in-deck.attacker= `${c}`
         pre.square.in-deck.attacker
           .
-             1
-                X 
-                  1
+            KNT 
+            A: 5
+            D: 4
         pre.square.in-deck.attacker 2
         pre.square.in-deck.attacker 3
         pre.square.in-deck.attacker 4
@@ -32,24 +34,28 @@ table
     td 
       .col
         .row 
-          .square.in-board.defender
+          pre.square.in-board.defender
             .
-              WIZARD
+              WZD
               A: 2
               D: 7
-          .square.in-board.defender
+          pre.square.in-board.defender
             .
-              NECROMANCER
+              NCR
               A: 2
               D: 7
-          .square.in-board.defender
+          pre.square.in-board.defender
+            .
+              ???
+
+
         .row
-          .square.in-board.defender
-          .square.in-board.defender
-          .square.in-board.defender
+          pre.square.in-board.defender
+          pre.square.in-board.defender
+          pre.square.in-board.defender
         .row
-          .square.in-board.defender
-          .square.in-board.defender
-          .square.in-board.defender
+          pre.square.in-board.defender
+          pre.square.in-board.defender
+          pre.square.in-board.defender
   tr
     td CP: 10/15

@@ -1,12 +1,19 @@
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: whitesmoke;
-    background-color: black;
-  }
+:root {
+  --fg: black;
+  --bg: white;
+  --side: 4rem;
+
+  font-family: monospace;
+  
+  color: var(--fg);
+  background-color: var(--bg);
 }
 
-:root {
-  font-family: monospace;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: white;
+    --bg: black;
+  }
 }
 
 body, html {
@@ -38,10 +45,10 @@ body {
 }
 
 .square {
-  min-width: 4rem;
-  min-height: 4rem;
-  max-width: 4rem;
-  max-height: 4rem;
+  min-width: var(--side);
+  min-height: var(--side);
+  max-width: var(--side);
+  max-height: var(--side);
   background-color: black;
 }
 
