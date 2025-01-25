@@ -1,0 +1,37 @@
+cards:
+  - name: Knight
+    description: Versed warrior
+    attack: 5
+    defense: 4
+  - name: Wizard
+    description: Old trained magician
+    attack: 2
+    defense: 7
+  - name: Archer
+    description: Skilled sniper
+    attack: 3
+    defense: 6
+  - name: Barbarian
+    description: Wild fighter
+    attack: 7
+    defense: 2
+  - name: Druid
+    description: One with the nature
+    attack: 4
+    defense: 5
+  - name: Rogue
+    description: Silent infiltrator
+    attack: 2
+    defense: 7
+  - name: Paladin
+    description: Holy warrior
+    attack: 8
+    defense: 1
+  - name: Necromancer
+    description: Scholar of undead
+    attack: 2
+    defense: 7
+  - name: Monk
+    description: Master of meditation and bare-hands fight
+    attack: 1
+    defense: 8

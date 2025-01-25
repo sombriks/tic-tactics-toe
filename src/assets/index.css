@@ -8,15 +8,43 @@
 :root {
   font-family: monospace;
 }
+
 body, html {
   height: 100%;
 }
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-table, tr, td {
+/* table, tr, td,  */
+.square {
   border: 1px solid red;
+  margin: 0.4rem;
+}
+
+.row, .col, .col-rev {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.col-rev {
+  flex-direction: column-reverse;
+}
+
+.square {
+  min-width: 4rem;
+  min-height: 4rem;
+  max-width: 4rem;
+  max-height: 4rem;
+  background-color: black;
+}
+
+.in-deck {
+  margin-top: -2rem;
 }
