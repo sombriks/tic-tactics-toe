@@ -26,7 +26,7 @@ table
           .row
             - for (let j = 0 ; j < 3 ; j++)
               - let c = cards.board[j+3*i]
-              +card(c).in-board.defender(onclick="console.log(this)")
+              +card(c).in-board.defender(onclick="attack(this)")
               - boardCP.a += cards.types[c.type].attack
               - boardCP.d += cards.types[c.type].defense
   tr

@@ -14,8 +14,8 @@ const deck = [warrior, warrior, paladin, //
   paladin, paladin, monk,//
   archer, rogue, barbarian]
 
-const board = [archer, wizard, monk, // 
-  archer, wizard, monk, // 
+const board = [archer, wizard, monk, //
+  archer, wizard, monk, //
   archer, wizard, monk]
 
 const challenge = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -24,7 +24,10 @@ const moves = []
 
 let finished = false
 
-function attack(d, b) {
+function attack(cardFromBoard) {
+  const cardFromDeck = document.querySelector(".square.in-deck.attacker.ready")
+  console.log({cardFromBoard, cardFromDeck})
+
   if (finished) return
   if (d > 8 || b > 8 || d < 0 || b < 0 //
     || (challenge[b] && challenge[b] > 0) //
@@ -52,7 +55,7 @@ ${b[6]} ${b[7]} ${b[8]}
 
 function checkFinish() {
   // winning finish if:
-  // - one line taken (row, col, diag) 
+  // - one line taken (row, col, diag)
   // - deck is empty (9 moves)
 
   let score = 0;
@@ -66,11 +69,11 @@ function checkFinish() {
 
   // win table      84
   //
-  //  1   2   4      7 
+  //  1   2   4      7
   //  8  16  32     56
   // 64 128 256    448
   //
-  // 73 146 292    273 
+  // 73 146 292    273
   const winvalues = [7, 56, 448, 73, 146, 292, 84, 273]
   if (winvalues.find(v => (v & score) == v)) {
     console.log("line, column or diagonal taken, you won!")
