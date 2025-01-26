@@ -46,14 +46,23 @@ types:
     defense: 8
 deck:
   - type: MNK
+    played: false
   - type: KNT
+    played: false
   - type: PLD
+    played: false
   - type: PLD
+    played: false
   - type: KNT
+    played: false
   - type: ACH
+    played: false
   - type: WZD
+    played: false
   - type: BRB
+    played: false
   - type: DRD
+    played: false
 board:
   - type: MNK
     revealed: false

@@ -1,0 +1,6 @@
+//
+mixin card(c)
+    pre.square&attributes(attributes).
+        #{c.type}
+        A: #{cards.types[c.type].attack}
+        D: #{cards.types[c.type].defense}
