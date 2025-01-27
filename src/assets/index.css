@@ -28,7 +28,7 @@ body {
 
 /* table, tr, td,  */
 .square {
-  border: 1px solid red;
+  border: 1px dashed red;
   margin: 0.4rem;
 }
 

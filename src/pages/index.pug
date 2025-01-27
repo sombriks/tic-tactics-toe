@@ -11,23 +11,24 @@ table
   tr
     td(rowspan="3")
       .col-rev
-        each c in cards.deck
-         +card(c).in-deck.attacker
+        each c,i in cards.deck
+         +card(c).in-deck.attacker(data-index=i)
     td
     td(rowspan="3")
       .col
-        .square
-        .square
-        .square
+        .square Edit deck
+        .square Help
+        .square About
   tr
     td
-      .col
+      table
         - for (let i = 0 ; i < 3 ; i++)
-          .row
+          tr
             - for (let j = 0 ; j < 3 ; j++)
-              - let c = cards.board[j+3*i]
-              +card(c).in-board.defender(onclick="attack(this)")
-              - boardCP.a += cards.types[c.type].attack
-              - boardCP.d += cards.types[c.type].defense
+              td.square
+                - let c = cards.board[j+3*i]
+                +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
+                - boardCP.a += cards.types[c.type].attack
+                - boardCP.d += cards.types[c.type].defense
   tr
     td CP: #{boardCP.a}/#{boardCP.d}

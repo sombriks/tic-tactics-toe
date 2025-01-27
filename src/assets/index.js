@@ -1,14 +1,14 @@
 // tic tactics toe basic cards
 
-const warrior = { a: 5, d: 4, name: "warrior" }
-const wizard = { a: 2, d: 7, name: "wizard" }
-const archer = { a: 3, d: 6, name: "archer" }
-const barbarian = { a: 7, d: 2, name: "barbarian" }
-const druid = { a: 4, d: 5, name: "druid" }
-const rogue = { a: 2, d: 7, name: "rogue" }
-const paladin = { a: 8, d: 1, name: "paladin" }
-const necromancer = { a: 2, d: 7, mame: "necromancer" }
-const monk = { a: 1, d: 8, name: "monk" }
+const warrior = {a: 5, d: 4, name: "warrior"}
+const wizard = {a: 2, d: 7, name: "wizard"}
+const archer = {a: 3, d: 6, name: "archer"}
+const barbarian = {a: 7, d: 2, name: "barbarian"}
+const druid = {a: 4, d: 5, name: "druid"}
+const rogue = {a: 2, d: 7, name: "rogue"}
+const paladin = {a: 8, d: 1, name: "paladin"}
+const necromancer = {a: 2, d: 7, mame: "necromancer"}
+const monk = {a: 1, d: 8, name: "monk"}
 
 const deck = [warrior, warrior, paladin, //
   paladin, paladin, monk,//
@@ -25,11 +25,13 @@ const moves = []
 let finished = false
 
 function attack(cardFromBoard) {
-  if (finished) return
+  if (finished) {
+    console.log("game already ended")
+    return
+  }
 
   const cardFromDeck = document.querySelector(".square.in-deck.attacker.ready")
-  console.log({cardFromBoard, cardFromDeck})
-  if(!cardFromDeck) {
+  if (!cardFromDeck) {
     console.log("no card left on deck. game over")
     finished = true
     return
@@ -37,12 +39,20 @@ function attack(cardFromBoard) {
   cardFromDeck.classList.remove("ready")
   cardFromDeck.classList.add("hide")
 
-  // battle! TODO implement effects (reveal, attack, defend) and terrains
-  challenge[b] = deck[d].a - board[b].d
-
-  moves.push({cardFromBoard, cardFromDeck})
+  fight({cardFromBoard, cardFromDeck})
   printBoard()
   checkFinish()
+}
+
+function fight({cardFromBoard, cardFromDeck}) {
+  // battle! TODO implement effects (reveal, attack, defend) and terrains
+  const ch = cardFromBoard.dataset.index
+  challenge[ch] = cardFromDeck.dataset.attack - cardFromBoard.dataset.defense
+  moves.push({cardFromBoard, cardFromDeck})
+  if(challenge[ch] > 0) {
+    cardFromBoard.classList.remove("ready")
+    cardFromBoard.classList.add("hide")
+  }
 }
 
 function printBoard() {
