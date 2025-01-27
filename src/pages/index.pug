@@ -15,20 +15,18 @@ table
          +card(c).in-deck.attacker(data-index=i)
     td
     td(rowspan="3")
-      .col
-        .square Edit deck
-        .square Help
-        .square About
+      .col#event-log
   tr
     td
       table
         - for (let i = 0 ; i < 3 ; i++)
           tr
             - for (let j = 0 ; j < 3 ; j++)
-              td.square
-                - let c = cards.board[j+3*i]
-                +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
-                - boardCP.a += cards.types[c.type].attack
-                - boardCP.d += cards.types[c.type].defense
+              td
+                .square
+                  - let c = cards.board[j+3*i]
+                  +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
+                  - boardCP.a += cards.types[c.type].attack
+                  - boardCP.d += cards.types[c.type].defense
   tr
-    td CP: #{boardCP.a}/#{boardCP.d}
+    td#status-line CP: #{boardCP.a}/#{boardCP.d}

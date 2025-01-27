@@ -27,10 +27,10 @@ body {
 }
 
 /* table, tr, td,  */
-.square {
-  border: 1px dashed red;
-  margin: 0.4rem;
-}
+/*.square {*/
+/*  border: 1px dashed red;*/
+/*  margin: 0.4rem;*/
+/*}*/
 
 .row, .col, .col-rev {
   display: flex;
@@ -61,7 +61,7 @@ body {
 }
 
 .defender {
-  border: 1px solid yellow;
+  border: 1px solid mediumorchid;
 }
 
 .hide {

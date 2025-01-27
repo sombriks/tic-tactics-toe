@@ -1,7 +1,6 @@
 //
 mixin card(c)
-    pre.square(
-        class=`${!c.done ? 'ready' : ''}`
+    pre.square.ready(
         data-code=`${c.type}`
         data-attack=`${cards.types[c.type].attack}`
         data-defense=`${cards.types[c.type].defense}`
