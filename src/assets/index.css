@@ -61,9 +61,13 @@ body {
 }
 
 .defender {
-  border: 1px solid mediumorchid;
+  border: 1px solid red;
 }
 
-.hide {
+.done {
   display: none;
+}
+
+.terrain {
+  margin: 0.3rem;
 }

@@ -4,10 +4,9 @@ title: Tic-Tactics-Toe
 ---
 include ../includes/components/card.pug
 table
-  - let boardCP = {a:0,d:0}
   tr
     td(colspan="3")
-      h1 #{title}
+      h1 Challenge #1234
   tr
     td(rowspan="3")
       .col-rev
@@ -23,10 +22,6 @@ table
           tr
             - for (let j = 0 ; j < 3 ; j++)
               td
-                .square
+                .square.terrain
                   - let c = cards.board[j+3*i]
                   +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
-                  - boardCP.a += cards.types[c.type].attack
-                  - boardCP.d += cards.types[c.type].defense
-  tr
-    td#status-line CP: #{boardCP.a}/#{boardCP.d}

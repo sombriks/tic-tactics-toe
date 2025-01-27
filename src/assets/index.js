@@ -19,7 +19,7 @@ function attack(cardFromBoard) {
     return
   }
   cardFromDeck.classList.remove("ready")
-  cardFromDeck.classList.add("hide")
+  cardFromDeck.classList.add("done")
 
   fight({cardFromBoard, cardFromDeck})
   printBoard()
@@ -32,7 +32,7 @@ function fight({cardFromBoard, cardFromDeck}) {
   challenge[ch] = cardFromDeck.dataset.attack - cardFromBoard.dataset.defense
   if(challenge[ch] > 0) {
     cardFromBoard.classList.remove("ready")
-    cardFromBoard.classList.add("hide")
+    cardFromBoard.classList.add("done")
   }
   moves.push({cardFromBoard, cardFromDeck})
   console.log(`${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}`)

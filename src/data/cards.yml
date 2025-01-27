@@ -46,39 +46,39 @@ types:
     defense: 8
 deck:
   - type: MNK
-    done: false
+    status: ready
   - type: KNT
-    done: false
+    status: ready
   - type: PLD
-    done: false
+    status: ready
   - type: PLD
-    done: false
+    status: ready
   - type: KNT
-    done: false
+    status: ready
   - type: ACH
-    done: false
+    status: ready
   - type: WZD
-    done: false
+    status: ready
   - type: BRB
-    done: false
+    status: ready
   - type: DRD
-    done: false
+    status: ready
 board:
   - type: MNK
-    done: false
+    status: ready # face-down, ready, done
   - type: KNT
-    done: false
+    status: ready
   - type: PLD
-    done: false
+    status: ready
   - type: WZD
-    done: false
+    status: ready
   - type: NCR
-    done: false
+    status: ready
   - type: BRB
-    done: false
+    status: ready
   - type: RGE
-    done: false
+    status: ready
   - type: ACH
-    done: true
+    status: ready
   - type: DRD
-    done: false
+    status: ready
