@@ -63,3 +63,7 @@ body {
 .defender {
   border: 1px solid yellow;
 }
+
+.hide {
+  display: none;
+}

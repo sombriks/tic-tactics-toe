@@ -25,21 +25,22 @@ const moves = []
 let finished = false
 
 function attack(cardFromBoard) {
+  if (finished) return
+
   const cardFromDeck = document.querySelector(".square.in-deck.attacker.ready")
   console.log({cardFromBoard, cardFromDeck})
-
-  if (finished) return
-  if (d > 8 || b > 8 || d < 0 || b < 0 //
-    || (challenge[b] && challenge[b] > 0) //
-    || moves.find(m => m.d == d)) {
-    return console.log("move already made or invalid")
+  if(!cardFromDeck) {
+    console.log("no card left on deck. game over")
+    finished = true
+    return
   }
+  cardFromDeck.classList.remove("ready")
+  cardFromDeck.classList.add("hide")
 
   // battle! TODO implement effects (reveal, attack, defend) and terrains
   challenge[b] = deck[d].a - board[b].d
 
-  moves.push({ d, b })
-  console.log(`${deck[d].name} attacks ${board[b].name}`)
+  moves.push({cardFromBoard, cardFromDeck})
   printBoard()
   checkFinish()
 }
