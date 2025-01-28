@@ -1,45 +1,42 @@
-// tic tactics toe basic cards
+// tic tactics toe
 
-const challenge = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-
+const score = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 const moves = []
 
+let eventLog
 let finished = false
 
 function attack(cardFromBoard) {
+  // if(!eventLog) eventLog = document.getElementById("event-log")
   if (finished) {
-    console.log("game already ended")
+    console.log("<p>game already ended</p>")
     return
   }
 
   const cardFromDeck = document.querySelector(".square.in-deck.attacker.ready")
-  if (!cardFromDeck) {
-    console.log("no card left on deck. game over")
-    finished = true
-    return
-  }
+
   cardFromDeck.classList.remove("ready")
   cardFromDeck.classList.add("done")
 
   fight({cardFromBoard, cardFromDeck})
-  printBoard()
+  printScoreBoard()
   checkFinish()
 }
 
 function fight({cardFromBoard, cardFromDeck}) {
   // battle! TODO implement effects (reveal, attack, defend) and terrains
   const ch = cardFromBoard.dataset.index
-  challenge[ch] = cardFromDeck.dataset.attack - cardFromBoard.dataset.defense
-  if(challenge[ch] > 0) {
+  score[ch] = cardFromDeck.dataset.attack - cardFromBoard.dataset.defense
+  if (score[ch] > 0) {
     cardFromBoard.classList.remove("ready")
     cardFromBoard.classList.add("done")
   }
   moves.push({cardFromBoard, cardFromDeck})
-  console.log(`${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}`)
+  eventLog.innerHTML +=`<p>${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}</p>`
 }
 
-function printBoard() {
-  const b = challenge
+function printScoreBoard() {
+  const b = score
   console.log(`
 ${b[0]} ${b[1]} ${b[2]}
 ${b[3]} ${b[4]} ${b[5]}
@@ -52,12 +49,12 @@ function checkFinish() {
   // - one line taken (row, col, diag)
   // - deck is empty (9 moves)
 
-  let score = 0;
+  let points = 0;
   let squares = 9;
-  for (let i = 0; i < challenge.length; i++) {
-    if (challenge[i] > 0) {
+  for (let i = 0; i < score.length; i++) {
+    if (score[i] > 0) {
       squares++
-      score += Math.pow(2, i)
+      points += Math.pow(2, i)
     }
   }
 
@@ -68,16 +65,22 @@ function checkFinish() {
   // 64 128 256    448
   //
   // 73 146 292    273
-  const winvalues = [7, 56, 448, 73, 146, 292, 84, 273]
-  if (winvalues.find(v => (v & score) == v)) {
+  const winValues = [7, 56, 448, 73, 146, 292, 84, 273]
+  if (winValues.find(v => (v & points) == v)) {
     console.log("line, column or diagonal taken, you won!")
+    eventLog.innerHTML += "<p>Victory!</p>"
     finished = true
   }
 
-  if (moves.length == 9) {
+  if (!document.querySelector(".square.in-deck.attacker.ready")) {
     console.log("deck is empty, game over!")
+    eventLog.innerHTML += "<p>You lose!</p>"
     finished = true
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  eventLog = document.getElementById("event-log")
+  eventLog.innerHTML += "<p>ready</p>"
 
+})

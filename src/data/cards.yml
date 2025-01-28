@@ -46,7 +46,7 @@ types:
     defense: 8
 deck:
   - type: MNK
-    status: ready
+    status: ready # face-down, ready, done
   - type: KNT
     status: ready
   - type: PLD
@@ -65,7 +65,7 @@ deck:
     status: ready
 board:
   - type: MNK
-    status: ready # face-down, ready, done
+    status: ready
   - type: KNT
     status: ready
   - type: PLD

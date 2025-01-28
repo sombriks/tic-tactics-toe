@@ -33,6 +33,7 @@ body {
 /*}*/
 
 .row, .col, .col-rev {
+  min-width: var(--side);
   display: flex;
 }
 
