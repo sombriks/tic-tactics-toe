@@ -1,10 +1,9 @@
 // tic tactics toe
 
-const score = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-const moves = []
-
+let score
+let moves
 let eventLog
-let finished = false
+let finished
 
 function attack(cardFromBoard) {
   // if(!eventLog) eventLog = document.getElementById("event-log")
@@ -28,11 +27,17 @@ function fight({cardFromBoard, cardFromDeck}) {
   const ch = cardFromBoard.dataset.index
   score[ch] = cardFromDeck.dataset.attack - cardFromBoard.dataset.defense
   if (score[ch] > 0) {
-    cardFromBoard.classList.remove("ready")
+    cardFromBoard.classList.remove("ready","face-down")
     cardFromBoard.classList.add("done")
+  } else {
+    cardFromBoard.classList.remove("face-down")
+    cardFromBoard.classList.add("ready")
+    cardFromBoard.innerHTML = `${cardFromBoard.dataset.code}
+A: ${cardFromBoard.dataset.attack}
+D: ${cardFromBoard.dataset.defense}`
   }
   moves.push({cardFromBoard, cardFromDeck})
-  eventLog.innerHTML +=`<p>${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}</p>`
+  eventLog.innerHTML +=`<i>${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}</i>`
 }
 
 function printScoreBoard() {
@@ -82,5 +87,8 @@ function checkFinish() {
 document.addEventListener("DOMContentLoaded", () => {
   eventLog = document.getElementById("event-log")
   eventLog.innerHTML += "<p>ready</p>"
+
+  score = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  moves = []
 
 })

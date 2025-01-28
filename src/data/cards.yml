@@ -65,20 +65,20 @@ deck:
     status: ready
 board:
   - type: MNK
-    status: ready
+    status: face-down
   - type: KNT
-    status: ready
+    status: face-down
   - type: PLD
-    status: ready
+    status: face-down
   - type: WZD
-    status: ready
+    status: face-down
   - type: NCR
-    status: ready
+    status: face-down
   - type: BRB
-    status: ready
+    status: face-down
   - type: RGE
-    status: ready
+    status: face-down
   - type: ACH
-    status: ready
+    status: face-down
   - type: DRD
-    status: ready
+    status: face-down
