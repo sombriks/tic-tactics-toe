@@ -5,15 +5,15 @@ title: Tic-Tactics-Toe
 include ../includes/components/card.pug
 table
   tr
-    td(colspan="3")
+    td(colspan="4")
       h1 Challenge #1234
   tr
-    td(rowspan="3")
+    td(rowspan="6")
       .col-rev
         each c,i in cards.deck
          +card(c).in-deck.attacker(data-index=i)
     td
-    td(rowspan="3")
+    td(rowspan="6")
       .col#event-log
   tr
     td
@@ -25,3 +25,15 @@ table
                 .square.terrain
                   - let c = cards.board[j+3*i]
                   +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
+  tr(colspan="3")
+    td
+      button(onclick="share('https://bsky.app/intent/compose')") Share on Bluesky 
+  tr(colspan="3")
+    td
+      button(onclick="share('https://mastodon.world/share')") Share on Mastodon 
+  tr(colspan="3")
+    td
+      button(onclick="share('https://www.threads.net/intent/post')") Share on Threads 
+  tr(colspan="3")
+    td
+      button(onclick="share('https://www.facebook.com/dialog/share?display=popup')") Share on Facebook   

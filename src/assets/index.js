@@ -17,17 +17,17 @@ function attack(cardFromBoard) {
   cardFromDeck.classList.remove("ready")
   cardFromDeck.classList.add("done")
 
-  fight({cardFromBoard, cardFromDeck})
+  fight({ cardFromBoard, cardFromDeck })
   printScoreBoard()
   checkFinish()
 }
 
-function fight({cardFromBoard, cardFromDeck}) {
+function fight({ cardFromBoard, cardFromDeck }) {
   // battle! TODO implement effects (reveal, attack, defend) and terrains
   const ch = cardFromBoard.dataset.index
   score[ch] = cardFromDeck.dataset.attack - cardFromBoard.dataset.defense
   if (score[ch] > 0) {
-    cardFromBoard.classList.remove("ready","face-down")
+    cardFromBoard.classList.remove("ready", "face-down")
     cardFromBoard.classList.add("done")
   } else {
     cardFromBoard.classList.remove("face-down")
@@ -36,8 +36,8 @@ function fight({cardFromBoard, cardFromDeck}) {
 A: ${cardFromBoard.dataset.attack}
 D: ${cardFromBoard.dataset.defense}`
   }
-  moves.push({cardFromBoard, cardFromDeck})
-  eventLog.innerHTML +=`<i>${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}</i>`
+  moves.push({ cardFromBoard, cardFromDeck })
+  eventLog.innerHTML += `<i>${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}</i>`
 }
 
 function printScoreBoard() {
@@ -82,6 +82,10 @@ function checkFinish() {
     eventLog.innerHTML += "<p>You lose!</p>"
     finished = true
   }
+}
+
+function share(url) {
+  console.log(url)
 }
 
 document.addEventListener("DOMContentLoaded", () => {
