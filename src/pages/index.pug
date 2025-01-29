@@ -25,15 +25,9 @@ table
                 .square.terrain
                   - let c = cards.board[j+3*i]
                   +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
-  tr(colspan="3")
+  tr#share.hide(colspan="3")
     td
-      button(onclick="share('https://bsky.app/intent/compose')") Share on Bluesky 
-  tr(colspan="3")
-    td
-      button(onclick="share('https://mastodon.world/share')") Share on Mastodon 
-  tr(colspan="3")
-    td
-      button(onclick="share('https://www.threads.net/intent/post')") Share on Threads 
-  tr(colspan="3")
-    td
-      button(onclick="share('https://www.facebook.com/dialog/share?display=popup')") Share on Facebook   
+      button(onclick="share('https://bsky.app/intent/compose')") Bluesky 
+      button(onclick="share('https://mastodon.world/share')") Mastodon 
+      button(onclick="share('https://www.threads.net/intent/post')") Threads 
+      button(onclick="buildMessage()") Clipboard  

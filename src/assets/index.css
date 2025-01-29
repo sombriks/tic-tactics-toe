@@ -65,7 +65,7 @@ body {
   border: 1px solid red;
 }
 
-.done {
+.done, .hide {
   display: none;
 }
 

@@ -4,6 +4,7 @@ let score
 let moves
 let eventLog
 let finished
+let victory
 
 function attack(cardFromBoard) {
   // if(!eventLog) eventLog = document.getElementById("event-log")
@@ -26,6 +27,9 @@ function fight({ cardFromBoard, cardFromDeck }) {
   // battle! TODO implement effects (reveal, attack, defend) and terrains
   const ch = cardFromBoard.dataset.index
   score[ch] = cardFromDeck.dataset.attack - cardFromBoard.dataset.defense
+  cardFromDeck.dataset.fights++
+  cardFromBoard.dataset.fights++
+
   if (score[ch] > 0) {
     cardFromBoard.classList.remove("ready", "face-down")
     cardFromBoard.classList.add("done")
@@ -75,6 +79,7 @@ function checkFinish() {
     console.log("line, column or diagonal taken, you won!")
     eventLog.innerHTML += "<p>Victory!</p>"
     finished = true
+    victory = true
   }
 
   if (!document.querySelector(".square.in-deck.attacker.ready")) {
@@ -82,10 +87,35 @@ function checkFinish() {
     eventLog.innerHTML += "<p>You lose!</p>"
     finished = true
   }
+
+  if (finished) document.getElementById("share").classList.remove("hide")
 }
 
-function share(url) {
-  console.log(url)
+function share(base) {
+  const msg = buildMessage()
+  console.log(msg)
+  window.open(encodeURI(`${base}?text=${msg}`))
+}
+
+function buildMessage() {
+  let msg = ""
+  let deck = document.querySelectorAll(".square.in-deck.attacker.ready")
+  let board = document.querySelectorAll(".square.in-board.defender")
+
+  msg += victory ? "I Won!\n" : "I Lost!\n"
+  for (let i = 0; i < score.length; i++) {
+    if (score[i] > 0) {
+      if (board[i].dataset.fights == 1) msg += "🟩"
+      else msg += "🟨"
+    } else if (score[i] < 0) msg += "🟥"
+    else msg += "🟪"
+    if ((i + 1) % 3 == 0) msg += "\n"
+  }
+  // msg += "#tictactoe #tactics\n"
+  msg += "\n🟩 x " + deck.length
+  msg += `\n${window.location.href}`
+  navigator.clipboard.writeText(`${msg}`)
+  return msg
 }
 
 document.addEventListener("DOMContentLoaded", () => {

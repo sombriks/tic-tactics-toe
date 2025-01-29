@@ -3,6 +3,7 @@ mixin card(c)
         class=`${c.status}`
         data-status=`${c.status}`
         data-code=`${c.type}`
+        data-fights="0"
         data-attack=`${cards.types[c.type].attack}`
         data-defense=`${cards.types[c.type].defense}`
         )&attributes(attributes)
