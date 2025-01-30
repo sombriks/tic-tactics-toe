@@ -1,10 +1,11 @@
 // tic tactics toe
 
 let score
-let moves
-let eventLog
-let finished
 let victory
+let finished
+let eventLog
+let cardsInDeck
+let cardsInBoard
 
 function attack(cardFromBoard) {
   // if(!eventLog) eventLog = document.getElementById("event-log")
@@ -40,7 +41,6 @@ function fight({ cardFromBoard, cardFromDeck }) {
 A: ${cardFromBoard.dataset.attack}
 D: ${cardFromBoard.dataset.defense}`
   }
-  moves.push({ cardFromBoard, cardFromDeck })
   eventLog.innerHTML += `<i>${cardFromDeck.dataset.code} attacks ${cardFromBoard.dataset.code}</i>`
 }
 
@@ -56,7 +56,7 @@ ${b[6]} ${b[7]} ${b[8]}
 function checkFinish() {
   // winning finish if:
   // - one line taken (row, col, diag)
-  // - deck is empty (9 moves)
+  // - deck is empty (no remaining ready cards)
 
   let points = 0;
   let squares = 9;
@@ -123,6 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
   eventLog.innerHTML += "<p>ready</p>"
 
   score = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-  moves = []
 
+  finished = false
+  victory = false
+
+  cardsInBoard = randomCards(9)
+  cardsInDeck = randomCards(9)
+
+  cardsInBoard.forEach(card => card.status = "face-down")
 })

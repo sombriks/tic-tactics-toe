@@ -9,7 +9,7 @@ table
       h1 Challenge #1234
   tr
     td(rowspan="6")
-      .col-rev
+      .col-rev#deck
         each c,i in cards.deck
          +card(c).in-deck.attacker(data-index=i)
     td
@@ -17,7 +17,7 @@ table
       .col#event-log
   tr
     td
-      table
+      table#board
         - for (let i = 0 ; i < 3 ; i++)
           tr
             - for (let j = 0 ; j < 3 ; j++)
@@ -27,7 +27,7 @@ table
                   +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
   tr#share.hide(colspan="3")
     td
-      button(onclick="share('https://bsky.app/intent/compose')") Bluesky 
-      button(onclick="share('https://mastodon.world/share')") Mastodon 
-      button(onclick="share('https://www.threads.net/intent/post')") Threads 
-      button(onclick="buildMessage()") Clipboard  
+      button(onclick="share('https://bsky.app/intent/compose')") Bluesky
+      button(onclick="share('https://mastodon.world/share')") Mastodon
+      button(onclick="share('https://www.threads.net/intent/post')") Threads
+      button(onclick="buildMessage()") Clipboard
