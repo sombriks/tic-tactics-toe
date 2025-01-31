@@ -9,9 +9,10 @@ table
       h1 Challenge #1234
   tr
     td(rowspan="6")
-      .col-rev#deck
-        each c,i in cards.deck
-         +card(c).in-deck.attacker(data-index=i)
+      .col-rev#deck(x-data="{cards:$store.deck.cards}")
+        //- each c,i in cards.deck
+        template(x-for="(card, i) in cards") 
+          +card().in-deck.attacker(data-index="i")
     td
     td(rowspan="6")
       .col#event-log

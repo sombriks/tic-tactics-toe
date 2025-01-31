@@ -1,17 +1,30 @@
-mixin card(c)
-    pre.square(
-        class=`${c.status}`
-        data-status=`${c.status}`
-        data-code=`${c.type}`
-        data-fights="0"
-        data-attack=`${cards.types[c.type].attack}`
-        data-defense=`${cards.types[c.type].defense}`
-        )&attributes(attributes)
-        if c.status == 'ready'
-            .
-                #{c.type}
-                A: #{cards.types[c.type].attack}
-                D: #{cards.types[c.type].defense}
-        if c.status == 'face-down'
-            .
-                ???
+mixin card()
+    .card.square(x-if="card"
+        :data-attack="card.attack"
+        :data-defense="card.defense"
+        :data-status="card.status"
+        :data-code="card.code"
+        :class="card.status"
+        data-fights="0")&attributes(attributes)
+        pre.square(
+            x-if="card.status == 'ready'"
+            x-text="`${card.code}\nA: ${card.attack}\nD: ${card.defense}`")
+        pre.square(
+            x-if="card.status == 'face-down'" 
+            x-text="'???'")
+    //- pre.square(
+    //-     class=`${c.status}`
+    //-     data-status=`${c.status}`
+    //-     data-code=`${c.type}`
+    //-     data-fights="0"
+    //-     data-attack=`${cards.types[c.type].attack}`
+    //-     data-defense=`${cards.types[c.type].defense}`
+    //-     )&attributes(attributes)
+    //-     if c.status == 'ready'
+    //-         .
+    //-             #{c.type}
+    //-             A: #{cards.types[c.type].attack}
+    //-             D: #{cards.types[c.type].defense}
+    //-     if c.status == 'face-down'
+    //-         .
+    //-             ???

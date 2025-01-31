@@ -8,13 +8,13 @@ let cardsInDeck
 let cardsInBoard
 
 function attack(cardFromBoard) {
-  // if(!eventLog) eventLog = document.getElementById("event-log")
+
   if (finished) {
     console.log("<p>game already ended</p>")
     return
   }
 
-  const cardFromDeck = document.querySelector(".square.in-deck.attacker.ready")
+  const cardFromDeck = document.querySelector(".card.in-deck.attacker.ready")
 
   cardFromDeck.classList.remove("ready")
   cardFromDeck.classList.add("done")
@@ -93,11 +93,11 @@ function checkFinish() {
 
 function share(base) {
   const msg = buildMessage()
-  console.log(msg)
   window.open(encodeURI(`${base}?text=${msg}`))
 }
 
 function buildMessage() {
+
   let msg = ""
   let deck = document.querySelectorAll(".square.in-deck.attacker.ready")
   let board = document.querySelectorAll(".square.in-board.defender")
@@ -111,7 +111,8 @@ function buildMessage() {
     else msg += "🟪"
     if ((i + 1) % 3 == 0) msg += "\n"
   }
-  // msg += "#tictactoe #tactics\n"
+
+  // TODO hashtags"
   msg += "\n🟩 x " + deck.length
   msg += `\n${window.location.href}`
   navigator.clipboard.writeText(`${msg}`)
@@ -119,6 +120,7 @@ function buildMessage() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
   eventLog = document.getElementById("event-log")
   eventLog.innerHTML += "<p>ready</p>"
 
@@ -126,9 +128,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   finished = false
   victory = false
+})
 
-  cardsInBoard = randomCards(9)
-  cardsInDeck = randomCards(9)
+document.addEventListener("alpine:init", () => {
 
-  cardsInBoard.forEach(card => card.status = "face-down")
+  Alpine.store("deck", {
+    cards: [],
+    init() {
+      cardsInDeck = randomCards(9)
+      this.cards = cardsInDeck
+    }
+  })
+
+  Alpine.store("board", {
+    cards: [],
+    init() {
+      cardsInBoard = randomCards(9)
+      cardsInBoard.forEach(card => card.status = "face-down")
+      this.cards = cardsInBoard
+    }
+  })
 })
