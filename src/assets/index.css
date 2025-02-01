@@ -54,7 +54,7 @@ body {
 }
 
 .in-deck {
-  margin-top: -4rem;
+  margin-top: -3rem;
 }
 
 .attacker {
@@ -71,4 +71,8 @@ body {
 
 .terrain {
   margin: 0.3rem;
+}
+
+.card>pre {
+  margin: 0px;
 }

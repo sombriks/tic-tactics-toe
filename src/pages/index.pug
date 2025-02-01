@@ -9,23 +9,21 @@ table
       h1 Challenge #1234
   tr
     td(rowspan="6")
-      .col-rev#deck(x-data="{cards:$store.deck.cards}")
-        //- each c,i in cards.deck
-        template(x-for="(card, i) in cards") 
+      .col-rev#deck(x-data="{cards: $store.deck.cards}")
+        template(x-for="(card, i) in cards")
           +card().in-deck.attacker(data-index="i")
     td
     td(rowspan="6")
       .col#event-log
   tr
     td
-      table#board
-        - for (let i = 0 ; i < 3 ; i++)
+      table#board(x-data="{cards: $store.board.cards}")
+        template(x-for="i in [0,1,2]")
           tr
-            - for (let j = 0 ; j < 3 ; j++)
+            template(x-for="j in [0,1,2]")
               td
-                .square.terrain
-                  - let c = cards.board[j+3*i]
-                  +card(c).in-board.defender(data-index=(j+3*i) onclick="attack(this)")
+                .square.terrain(x-data="{card: cards[j+3*i]}")
+                  +card().in-board.defender(:data-index="j+3*i" onclick="attack(this)")
   tr#share.hide(colspan="3")
     td
       button(onclick="share('https://bsky.app/intent/compose')") Bluesky
